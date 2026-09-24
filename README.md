@@ -35,13 +35,13 @@ python evaluate.py
 
 先在 [OpenAI 平台](https://platform.openai.com/api-keys) 准备 API 密钥和可用额度。不要把密钥发到聊天或提交到 GitHub。
 
-Windows 用户可双击 `start_gpt.cmd`，在本机终端中隐藏输入密钥（输入时不显示字符），然后打开 <http://127.0.0.1:8766>。也可执行：
+Windows 用户可双击 `start_gpt.cmd`，然后打开 <http://127.0.0.1:8766>。服务无需密钥即可启动；在网页顶部“连接 GPT”中输入密钥，点击“保存到本次会话”即可启用生成。也可执行：
 
 ```sh
-python app.py --provider openai --prompt-api-key --port 8766
+python app.py --provider openai --port 8766
 ```
 
-密钥只在当前 Python 进程内使用，不写入文件，不发送到网页。如果已在本机设置环境变量 `OPENAI_API_KEY`，则省略 `--prompt-api-key`。本程序不自动读取 `.env` 文件。
+网页输入框使用密码样式，提交后立即清空，不使用浏览器本地存储。密钥经本机接口保存到当前 Python 进程内，不写入文件，也不会由服务返回给网页。服务重启后需重新输入。已有环境变量 `OPENAI_API_KEY` 时自动使用；若希望在终端隐藏输入，可额外添加 `--prompt-api-key`。本程序不自动读取 `.env` 文件。保存密钥不会调用付费接口，密钥有效性在首次生成时验证。
 
 默认模型为 `gpt-4.1-mini`。可通过 `--generation-model` 或环境变量 `OPENAI_MODEL` 修改；优先级为命令行、环境变量、默认值。实际可用模型取决于你的 API 项目权限。输出上限默认 1024 tokens，可用 `--max-output-tokens` 设置 64–4096。
 

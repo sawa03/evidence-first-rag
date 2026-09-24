@@ -56,6 +56,17 @@ class OpenAITests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 OpenAIProvider(api_key="test", max_output_tokens=limit)
 
+    def test_unconfigured_startup_and_key_validation(self):
+        provider = OpenAIProvider(api_key="", allow_unconfigured=True)
+        self.assertFalse(provider.ready)
+        with self.assertRaises(ModelServiceError):
+            provider.generate("test", [])
+        for key in (None, "", "  ", "key\nvalue", "a" * 513):
+            with self.assertRaises(ValueError):
+                provider.configure_key(key)
+        provider.configure_key("test-placeholder")
+        self.assertTrue(provider.ready)
+
     def test_http_errors_are_sanitized_and_not_retried(self):
         for code in (400, 401, 403, 404, 429, 500):
             error = HTTPError("https://api.openai.com/v1/responses", code, "secret-in-upstream-error", {}, io.BytesIO(b'secret'))
@@ -101,7 +112,8 @@ class OpenAITests(unittest.TestCase):
             send.assert_not_called()
 
     def test_http_status_and_generation_keep_key_server_side(self):
-        engine = Engine([Chunk("retry", "重试", "test", "重试三次")], self.provider)
+        provider = OpenAIProvider(api_key="", allow_unconfigured=True)
+        engine = Engine([Chunk("retry", "重试", "test", "重试三次")], provider)
         server = ThreadingHTTPServer(('127.0.0.1', 0), make_handler(engine))
         worker = threading.Thread(target=server.serve_forever, daemon=True)
         worker.start()
@@ -110,7 +122,22 @@ class OpenAITests(unittest.TestCase):
             with urlopen(base + '/api/status') as res:
                 status = json.load(res)
             self.assertEqual(status['provider'], 'openai')
+            self.assertFalse(status['generation'])
+            configure = Request(base + '/api/configure', data=json.dumps({'api_key': 'test-placeholder'}).encode(),
+                                headers={'Content-Type': 'application/json'})
+            with patch('rag.openai_provider.urlopen') as send:
+                with urlopen(configure) as res:
+                    self.assertEqual(json.load(res), {'configured': True})
+                send.assert_not_called()
+            with urlopen(base + '/api/status') as res:
+                status = json.load(res)
             self.assertTrue(status['generation'])
+            self.assertTrue(status['key_configured'])
+            configure.add_header('Origin', 'https://example.com')
+            with self.assertRaises(HTTPError) as blocked:
+                urlopen(configure)
+            self.assertEqual(blocked.exception.code, 403)
+            blocked.exception.close()
             self.assertFalse(status['embedding'])
             self.assertNotIn('test-placeholder', json.dumps(status))
             request = Request(base + '/api/ask', data=json.dumps({'question': '重试', 'generate': True}).encode(),

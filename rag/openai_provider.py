@@ -15,19 +15,30 @@ class OpenAIProvider:
     name = "openai"
     embedding_model = None  # Retrieval remains local in this integration.
 
-    def __init__(self, generation_model=None, api_key=None, max_output_tokens=1024):
+    def __init__(self, generation_model=None, api_key=None, max_output_tokens=1024, allow_unconfigured=False):
         self.generation_model = generation_model or os.environ.get("OPENAI_MODEL") or "gpt-4.1-mini"
         self._api_key = (api_key if api_key is not None else os.environ.get("OPENAI_API_KEY", "")).strip()
-        if not self._api_key:
+        if not self._api_key and not allow_unconfigured:
             raise ValueError("请设置 OPENAI_API_KEY，或使用 --prompt-api-key 隐藏输入密钥。")
         if type(max_output_tokens) is not int or not 64 <= max_output_tokens <= 4096:
             raise ValueError("max_output_tokens must be an integer between 64 and 4096")
         self.max_output_tokens = max_output_tokens
 
+    @property
+    def ready(self):
+        return bool(self._api_key)
+
+    def configure_key(self, key):
+        if not isinstance(key, str) or not 1 <= len(key.strip()) <= 512 or any(c.isspace() for c in key.strip()):
+            raise ValueError("请输入有效的 API 密钥，不能包含空白字符。")
+        self._api_key = key.strip()
+
     def embed(self, texts):
         raise ValueError("OpenAI 模式当前使用本地 BM25 检索，不支持 dense/hybrid。")
 
     def generate(self, question, evidence):
+        if not self.ready:
+            raise ModelServiceError("请先在网页上配置 OpenAI API 密钥。")
         # Do not send unrelated corpus chunks, retrieval scores or local file paths.
         prompt = json.dumps({"question": question, "evidence": [
             {k: c[k] for k in ("id", "title", "text")} for c in evidence

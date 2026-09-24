@@ -30,13 +30,14 @@ def make_handler(engine):
                 self.send(200, {"chunks": len(engine.chunks),
                     "provider": getattr(engine.provider, "name", "offline"),
                     "model": getattr(engine.provider, "generation_model", None),
+                    "key_configured": getattr(engine.provider, "ready", False),
                     "embedding": bool(engine.provider and engine.provider.embedding_model),
-                    "generation": bool(engine.provider and engine.provider.generation_model)})
+                    "generation": bool(engine.provider and engine.provider.generation_model and getattr(engine.provider, "ready", True))})
             else:
                 self.send(404, {"error": "Not found"})
 
         def do_POST(self):
-            if self.path != "/api/ask":
+            if self.path not in ("/api/ask", "/api/configure"):
                 return self.send(404, {"error": "Not found"})
             # JSON-only endpoint; avoid cross-origin form submissions to local models.
             if self.headers.get("Content-Type", "").split(";")[0] != "application/json":
@@ -50,6 +51,13 @@ def make_handler(engine):
                 if not 0 < size <= 16000:
                     raise ValueError("Invalid request length")
                 data = json.loads(self.rfile.read(size))
+                if self.path == "/api/configure":
+                    if not isinstance(engine.provider, OpenAIProvider):
+                        return self.send(400, {"error": "此服务不是 OpenAI 模式。"})
+                    if not isinstance(data, dict):
+                        raise ValueError("Expected a JSON object")
+                    engine.provider.configure_key(data.get("api_key"))
+                    return self.send(200, {"configured": True})
                 if not isinstance(data, dict) or type(data.get("generate", False)) is not bool:
                     raise ValueError("Expected an object and a boolean generate field")
                 result = engine.ask(data.get("question"), data.get("mode", "bm25"),
@@ -89,7 +97,7 @@ if __name__ == "__main__":
                 with warnings.catch_warnings():
                     warnings.simplefilter("error", getpass.GetPassWarning)
                     api_key = getpass.getpass("OpenAI API key (hidden): ")
-            provider = OpenAIProvider(args.generation_model, api_key, args.max_output_tokens)
+            provider = OpenAIProvider(args.generation_model, api_key, args.max_output_tokens, allow_unconfigured=not args.prompt_api_key)
             del api_key
             print("OpenAI mode: generation sends your question and retrieved text to OpenAI and uses API quota.", flush=True)
         else:

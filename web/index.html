@@ -7,6 +7,10 @@
 <header><span class="brand">EVIDENCE / FIRST</span><span class="tag">问答实验室 · v0.2</span></header>
 <h1>每一个回答，都有据可查。</h1>
 <p>从检索到证据，观察一次回答如何产生。使用原创虚构的 Atlas 产品手册演示。</p>
+<section id="key-panel" class="panel" hidden>
+<h2>连接 GPT</h2><p class="small">输入 OpenAI API 密钥后即可启用生成。密钥仅发送至本机服务并保存在内存中，不写入项目文件；服务重启后需重新输入。</p>
+<form id="key-form"><label for="api-key">API 密钥</label><div class="row"><input id="api-key" type="password" autocomplete="off" maxlength="512" required style="flex:1;min-width:180px;padding:12px;border:1px solid #c5cdc8;border-radius:7px"><button class="primary" id="save-key" type="submit">保存到本次会话</button></div></form><p id="key-status" class="small" role="status"></p>
+</section>
 <main><section class="panel"><label for="question">你想了解什么？</label><textarea id="question" maxlength="2000">任务因网络错误失败会重试几次？</textarea>
 <div class="row"><select id="mode" aria-label="检索方式"><option value="bm25">关键词 · BM25</option value="dense" disabled>语义检索 · 需嵌入模型</option><option value="hybrid" disabled>混合检索 · 需嵌入模型</option></select><button id="submit" class="primary">查找证据</button></div>
 <div class="row"><label class="small"><input id="generate" type="checkbox" disabled> <span id="generation-label">使用模型生成回答</span></label></div>
@@ -16,15 +20,19 @@
 <footer>演示数据不含真实业务资料。离线模式只返回原文摘录；生成模式仅校验引用编号，尚不能保证每句话都被证据支持。</footer>
 <script>
 const $=id=>document.getElementById(id);
-fetch('/api/status').then(r=>r.json()).then(s=>{
+function refreshStatus(){return fetch('/api/status').then(r=>r.json()).then(s=>{
   for(const o of $('mode').options) if(o.value!=='bm25') o.disabled=!s.embedding;
   $('generate').disabled=!s.generation;
   const cloud=s.provider==='openai';
+  $('key-panel').hidden=!cloud;
+  if(cloud) $('key-status').textContent=s.key_configured?'密钥已保存在本次会话；有效性将在首次生成时验证。':'尚未配置密钥，可以先使用本地检索。';
   $('generation-label').textContent=cloud?'使用 GPT 生成回答（消耗 API 额度）':'使用本地模型生成回答';
   $('setup').textContent=cloud
     ? `${s.chunks} 条资料 · ${s.model} · 勾选生成后，问题和检索片段会发送至 OpenAI；未勾选则仅本地检索。`
     : `${s.chunks} 条演示资料 · ${s.embedding?'已配置语义检索':'关键词模式可直接使用'} · ${s.generation?'已配置本地生成模型':'当前为原文摘录模式'}`;
-}).catch(()=>{$('setup').textContent='无法连接本地服务'});
+}).catch(()=>{$('setup').textContent='无法连接本地服务'});}
+refreshStatus();
+$('key-form').onsubmit=async e=>{e.preventDefault();$('save-key').disabled=true;const key=$('api-key').value;$('api-key').value='';try{const r=await fetch('/api/configure',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({api_key:key})});const data=await r.json();if(!r.ok)throw new Error(data.error);await refreshStatus()}catch(error){$('key-status').textContent=error.message}finally{$('save-key').disabled=false}};
 document.querySelectorAll('.example').forEach(b=>b.onclick=()=>{$('question').value=b.dataset.q});
 $('submit').onclick=async()=>{const button=$('submit');button.disabled=true;$('status').textContent='正在查找证据…';$('answer').textContent='';$('usage').textContent='';$('evidence').replaceChildren();try{const r=await fetch('/api/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:$('question').value,mode:$('mode').value,generate:$('generate').checked})});const d=await r.json();if(!r.ok)throw new Error(d.error);$('answer').textContent=d.answer;if(d.usage?.total_tokens!==undefined)$('usage').textContent=`本次用量：输入 ${d.usage.input_tokens ?? '未知'} / 输出 ${d.usage.output_tokens ?? '未知'} / 合计 ${d.usage.total_tokens} tokens`;const labels={evidence:'原文摘录',abstained:'证据不足',citation_rejected:'引用校验未通过',generated_unverified:'模型回答 · 语义支持待核验'};$('status').textContent=`${labels[d.status]} · ${d.total_ms} ms · 词项覆盖率 ${Math.round(d.overlap*100)}%`;for(const c of d.evidence){const a=document.createElement('article'),h=document.createElement('strong'),p=document.createElement('p'),s=document.createElement('div');h.textContent=`[${c.id}] ${c.title}`;p.textContent=c.text;s.className='small';s.textContent=`${c.source} · 排序分数 ${c.score.toFixed(4)}`;a.append(h,p,s);$('evidence').append(a)}}catch(e){$('status').textContent='请求失败';$('answer').textContent=e.message}finally{button.disabled=false}};
 </script></html>
