@@ -1,0 +1,247 @@
+{
+  "created_at": "2026-09-24T07:45:01.416851+00:00",
+  "python": "3.14.3",
+  "dataset": "Original synthetic Atlas smoke set; NOT a held-out benchmark",
+  "corpus_sha256": "ccbf6b4369819ef70142cdc2b232313dd1857b6bc5523731f4e27ca21c01d2b6",
+  "questions_sha256": "4611e51b4c3e94e8c5a9c6d44672629bc6295e8981a18ade2def0fc0dc24cd05",
+  "embedding_model": null,
+  "generation": false,
+  "latency_note": "Sequential end-to-end retrieval and extractive response; first dense query includes indexing.",
+  "results": [
+    {
+      "mode": "bm25",
+      "k": 3,
+      "summary": {
+        "recall_at_k": 1.0,
+        "mrr_at_k": 1.0,
+        "unanswerable_abstention_rate": 0.75,
+        "answerable_acceptance_rate": 1.0,
+        "mean_ms": 0.27135714285714285,
+        "p95_ms": 0.434,
+        "questions": 14
+      },
+      "rows": [
+        {
+          "id": "q01",
+          "question": "任务因网络错误失败会重试几次？",
+          "relevant": [
+            "atlas-retry"
+          ],
+          "retrieved": [
+            "atlas-retry",
+            "atlas-cache",
+            "atlas-cancel"
+          ],
+          "status": "evidence",
+          "overlap": 0.6154,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "total_ms": 0.434
+        },
+        {
+          "id": "q02",
+          "question": "相同优先级的任务怎样排队？",
+          "relevant": [
+            "atlas-queue"
+          ],
+          "retrieved": [
+            "atlas-queue",
+            "atlas-recovery",
+            "atlas-retry"
+          ],
+          "status": "evidence",
+          "overlap": 0.5455,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "total_ms": 0.41
+        },
+        {
+          "id": "q03",
+          "question": "取消任务会删除实验文件吗？",
+          "relevant": [
+            "atlas-cancel"
+          ],
+          "retrieved": [
+            "atlas-cancel",
+            "atlas-access",
+            "atlas-export"
+          ],
+          "status": "evidence",
+          "overlap": 0.6364,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "total_ms": 0.251
+        },
+        {
+          "id": "q04",
+          "question": "只读成员能提交任务吗？",
+          "relevant": [
+            "atlas-access"
+          ],
+          "retrieved": [
+            "atlas-access",
+            "atlas-audit",
+            "atlas-queue"
+          ],
+          "status": "evidence",
+          "overlap": 0.7778,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "total_ms": 0.366
+        },
+        {
+          "id": "q05",
+          "question": "实验结果支持哪些导出格式？",
+          "relevant": [
+            "atlas-export"
+          ],
+          "retrieved": [
+            "atlas-export",
+            "atlas-access",
+            "atlas-cache"
+          ],
+          "status": "evidence",
+          "overlap": 0.5455,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "total_ms": 0.292
+        },
+        {
+          "id": "q06",
+          "question": "修改代码版本会影响缓存吗？",
+          "relevant": [
+            "atlas-cache"
+          ],
+          "retrieved": [
+            "atlas-cache",
+            "atlas-access",
+            "atlas-export"
+          ],
+          "status": "evidence",
+          "overlap": 0.3636,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "total_ms": 0.3
+        },
+        {
+          "id": "q07",
+          "question": "审计日志保留多久？",
+          "relevant": [
+            "atlas-audit"
+          ],
+          "retrieved": [
+            "atlas-audit",
+            "atlas-cache"
+          ],
+          "status": "evidence",
+          "overlap": 0.5714,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "total_ms": 0.179
+        },
+        {
+          "id": "q08",
+          "question": "检查点多久保存一次？",
+          "relevant": [
+            "atlas-recovery"
+          ],
+          "retrieved": [
+            "atlas-recovery",
+            "atlas-cancel"
+          ],
+          "status": "evidence",
+          "overlap": 0.625,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "total_ms": 0.277
+        },
+        {
+          "id": "q09",
+          "question": "恢复任务和缓存分别依赖什么版本信息？",
+          "relevant": [
+            "atlas-recovery",
+            "atlas-cache"
+          ],
+          "retrieved": [
+            "atlas-recovery",
+            "atlas-cache",
+            "atlas-access"
+          ],
+          "status": "evidence",
+          "overlap": 0.25,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "total_ms": 0.313
+        },
+        {
+          "id": "q10",
+          "question": "失败后的等待间隔是多少？",
+          "relevant": [
+            "atlas-retry"
+          ],
+          "retrieved": [
+            "atlas-retry",
+            "atlas-cache",
+            "atlas-cancel"
+          ],
+          "status": "evidence",
+          "overlap": 0.4,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "total_ms": 0.22
+        },
+        {
+          "id": "q11",
+          "question": "火星直径是多少？",
+          "relevant": [],
+          "retrieved": [],
+          "status": "abstained",
+          "overlap": 0,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "total_ms": 0.105
+        },
+        {
+          "id": "q12",
+          "question": "咖啡豆应该如何烘焙？",
+          "relevant": [],
+          "retrieved": [],
+          "status": "abstained",
+          "overlap": 0,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "total_ms": 0.118
+        },
+        {
+          "id": "q13",
+          "question": "Atlas 的付费价格是多少？",
+          "relevant": [],
+          "retrieved": [
+            "atlas-queue",
+            "atlas-export",
+            "atlas-audit"
+          ],
+          "status": "abstained",
+          "overlap": 0.125,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "total_ms": 0.323
+        },
+        {
+          "id": "q14",
+          "question": "审计日志是否支持导出 PDF？",
+          "relevant": [],
+          "retrieved": [
+            "atlas-audit",
+            "atlas-export"
+          ],
+          "status": "evidence",
+          "overlap": 0.3,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "total_ms": 0.211
+        }
+      ]
+    }
+  ]
+}

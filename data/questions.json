@@ -1,0 +1,16 @@
+[
+ {"id":"q01","question":"任务因网络错误失败会重试几次？","relevant":["atlas-retry"]},
+ {"id":"q02","question":"相同优先级的任务怎样排队？","relevant":["atlas-queue"]},
+ {"id":"q03","question":"取消任务会删除实验文件吗？","relevant":["atlas-cancel"]},
+ {"id":"q04","question":"只读成员能提交任务吗？","relevant":["atlas-access"]},
+ {"id":"q05","question":"实验结果支持哪些导出格式？","relevant":["atlas-export"]},
+ {"id":"q06","question":"修改代码版本会影响缓存吗？","relevant":["atlas-cache"]},
+ {"id":"q07","question":"审计日志保留多久？","relevant":["atlas-audit"]},
+ {"id":"q08","question":"检查点多久保存一次？","relevant":["atlas-recovery"]},
+ {"id":"q09","question":"恢复任务和缓存分别依赖什么版本信息？","relevant":["atlas-recovery","atlas-cache"]},
+ {"id":"q10","question":"失败后的等待间隔是多少？","relevant":["atlas-retry"]},
+ {"id":"q11","question":"火星直径是多少？","relevant":[]},
+ {"id":"q12","question":"咖啡豆应该如何烘焙？","relevant":[]},
+ {"id":"q13","question":"Atlas 的付费价格是多少？","relevant":[]},
+ {"id":"q14","question":"审计日志是否支持导出 PDF？","relevant":[]}
+]
