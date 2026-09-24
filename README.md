@@ -2,17 +2,17 @@
 
 **证据优先的资料问答实验室：检索、引用、拒答与可复现实验。**
 
-这是一个从零编写的学习与作品集项目。当前为 v0.1 原型，不是已验证的研究创新或生产服务。
+这是一个从零编写的学习与作品集项目。当前为 v0.2 原型，不是已验证的研究创新或生产服务。
 
 ## 已实现
 
 - 无第三方依赖即可运行的中文/英文 BM25 检索、原文摘录与来源展示。
 - 可选的 Ollama 本地向量检索，以及 BM25 + 向量检索的 RRF 融合。
-- 可选的本地模型生成，引用编号检查与低词项覆盖率拒答。
+- 可选的 GPT（OpenAI Responses API）或本地模型生成，引用编号检查与低词项覆盖率拒答。
 - 网页演示、命令行评测、单元与 HTTP 测试。
 - 原创虚构 Atlas 产品手册及小型人工编写问题集，不含真实业务或科研数据。
 
-**运行状态须区分：**BM25 与网页可以直接使用；语义检索和生成需要另外安装 Ollama 并准备模型。当前仓库测试包含模拟模型接口测试，尚未完成真实模型端到端验证。
+**运行状态须区分：**BM25 与网页可以直接使用；本地语义检索和本地生成需要另外安装 Ollama 并准备模型；GPT 生成需要 OpenAI API 密钥和可用额度。当前仓库测试包含模拟模型接口测试；GPT 接入未配置真实密钥，尚未完成真实 API 端到端验证。
 
 ## 一分钟启动
 
@@ -30,6 +30,28 @@ python evaluate.py
 ```
 
 逐题结果保存到 `reports/smoke.json`。语料和问题文件的 SHA-256 随报告记录，便于确认实验输入。
+
+## 接入 GPT API（推荐的下一步）
+
+先在 [OpenAI 平台](https://platform.openai.com/api-keys) 准备 API 密钥和可用额度。不要把密钥发到聊天或提交到 GitHub。
+
+Windows 用户可双击 `start_gpt.cmd`，在本机终端中隐藏输入密钥（输入时不显示字符），然后打开 <http://127.0.0.1:8766>。也可执行：
+
+```sh
+python app.py --provider openai --prompt-api-key --port 8766
+```
+
+密钥只在当前 Python 进程内使用，不写入文件，不发送到网页。如果已在本机设置环境变量 `OPENAI_API_KEY`，则省略 `--prompt-api-key`。本程序不自动读取 `.env` 文件。
+
+默认模型为 `gpt-4.1-mini`。可通过 `--generation-model` 或环境变量 `OPENAI_MODEL` 修改；优先级为命令行、环境变量、默认值。实际可用模型取决于你的 API 项目权限。输出上限默认 1024 tokens，可用 `--max-output-tokens` 设置 64–4096。
+
+网页默认不勾选生成。勾选“使用 GPT 生成回答”再查询时，才会向 OpenAI 发送问题及 Top-k 资料块的编号、标题和正文；不发送整库、来源路径或密钥到前端。BM25 检索始终在本机运行。证据门槛未通过时直接拒答，不调用 GPT。当前 GPT 模式不支持向量/混合检索，后续再独立接入嵌入模型。
+
+请求使用 Responses API，设置 `store=false`，不使用文件上传、工具或自动重试。`store=false` 不等同于所有服务端日志零保留，数据处理仍以 [OpenAI 数据说明](https://developers.openai.com/api/docs/guides/your-data) 为准。超时可能已经产生用量，重试需用户手动触发。
+
+模型返回后仍检查引用编号。界面显示实际输入/输出 token 用量，不把它换算为未经核实的金额。生成截断、模型拒绝、密钥失效、额度或速率限制均会给出明确错误，不把原始服务异常或密钥显示在网页上。
+
+官方参考：[API 快速开始](https://developers.openai.com/api/docs/quickstart)、[GPT-4.1 mini](https://developers.openai.com/api/docs/models/gpt-4.1-mini)。实现使用 Python 标准库直接调用官方 HTTPS 接口，因此无需新增依赖。
 
 ## 接入本地模型
 
@@ -65,7 +87,7 @@ python app.py --corpus PATH_TO_YOUR_PUBLIC_CORPUS.json
                                        ↓
                               词项覆盖率拒答门槛
                                        ↓
-                          原文摘录 / 可选本地生成
+                          原文摘录 / GPT 或本地生成
                                        ↓
                            引用 ID 检查 + 来源展示
 ```
