@@ -35,7 +35,13 @@ python evaluate.py
 
 先在 [OpenAI 平台](https://platform.openai.com/api-keys) 准备 API 密钥和可用额度。不要把密钥发到聊天或提交到 GitHub。
 
-Windows 用户可双击 `start_gpt.cmd`，然后打开 <http://127.0.0.1:8766>。服务无需密钥即可启动；在网页顶部“连接 GPT”中输入密钥，点击“保存到本次会话”即可启用生成。也可执行：
+Windows 用户可双击 `start_gpt.cmd`：它会在后台启动服务，确认就绪后自动打开 <http://127.0.0.1:8766>；重复运行会复用已启动的服务。服务无需密钥即可启动；在网页顶部“连接 GPT”中输入密钥，点击“保存到本次会话”即可启用生成。也可执行：
+
+```sh
+python launch.py
+```
+
+电脑重启后需要再次启动，程序未设置开机自启。仅打开网页链接不会启动本地服务。后台启动失败时查看 `.runtime/server.log`（该目录不提交到 GitHub）。如需在终端前台运行：
 
 ```sh
 python app.py --provider openai --port 8766

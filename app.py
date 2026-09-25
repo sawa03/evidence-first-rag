@@ -27,7 +27,7 @@ def make_handler(engine):
             if self.path == "/":
                 self.send(200, (ROOT / "web/index.html").read_bytes(), "text/html; charset=utf-8")
             elif self.path == "/api/status":
-                self.send(200, {"chunks": len(engine.chunks),
+                self.send(200, {"service": "evidence-first-rag", "chunks": len(engine.chunks),
                     "provider": getattr(engine.provider, "name", "offline"),
                     "model": getattr(engine.provider, "generation_model", None),
                     "key_configured": getattr(engine.provider, "ready", False),

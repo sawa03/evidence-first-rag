@@ -1,4 +1,4 @@
 @echo off
 cd /d "%~dp0"
-python app.py --provider openai --port 8766
-pause
+python launch.py
+if errorlevel 1 pause
