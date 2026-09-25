@@ -1,0 +1,98 @@
+[
+  {
+    "id": "list-edit",
+    "title": "列表增删",
+    "source": "https://docs.python.org/3/tutorial/datastructures.html#more-on-lists",
+    "text": "append 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。"
+  },
+  {
+    "id": "list-pop",
+    "title": "列表弹出",
+    "source": "https://docs.python.org/3/tutorial/datastructures.html#more-on-lists",
+    "text": "pop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。"
+  },
+  {
+    "id": "stack",
+    "title": "列表实现栈",
+    "source": "https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks",
+    "text": "栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。"
+  },
+  {
+    "id": "queue",
+    "title": "双端队列",
+    "source": "https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues",
+    "text": "队列采用先进先出顺序。列表从头部插入或移除时需要移动其余元素；collections.deque 适合两端操作，popleft 从左端取出。"
+  },
+  {
+    "id": "range",
+    "title": "整数范围",
+    "source": "https://docs.python.org/3/tutorial/controlflow.html#the-range-function",
+    "text": "range 的终止值不包含在序列中，可以指定起点和步长。range 是可迭代对象，不会预先构造包含所有值的列表。"
+  },
+  {
+    "id": "loop-control",
+    "title": "循环控制",
+    "source": "https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements",
+    "text": "break 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。"
+  },
+  {
+    "id": "loop-else",
+    "title": "循环的 else",
+    "source": "https://docs.python.org/3/tutorial/controlflow.html#else-clauses-on-loops",
+    "text": "for 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。"
+  },
+  {
+    "id": "pass",
+    "title": "占位语句",
+    "source": "https://docs.python.org/3/tutorial/controlflow.html#pass-statements",
+    "text": "pass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。"
+  },
+  {
+    "id": "file-mode",
+    "title": "文件打开模式",
+    "source": "https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files",
+    "text": "open 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。"
+  },
+  {
+    "id": "binary",
+    "title": "文本与二进制",
+    "source": "https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files",
+    "text": "文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。"
+  },
+  {
+    "id": "file-close",
+    "title": "文件关闭",
+    "source": "https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files",
+    "text": "通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。"
+  },
+  {
+    "id": "json",
+    "title": "JSON 序列化",
+    "source": "https://docs.python.org/3/tutorial/inputoutput.html#saving-structured-data-with-json",
+    "text": "json.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。"
+  },
+  {
+    "id": "exception-match",
+    "title": "异常处理",
+    "source": "https://docs.python.org/3/tutorial/errors.html#handling-exceptions",
+    "text": "try 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。"
+  },
+  {
+    "id": "try-else",
+    "title": "异常处理中的 else",
+    "source": "https://docs.python.org/3/tutorial/errors.html#handling-exceptions",
+    "text": "try 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。"
+  },
+  {
+    "id": "raise",
+    "title": "主动抛出异常",
+    "source": "https://docs.python.org/3/tutorial/errors.html#raising-exceptions",
+    "text": "raise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。"
+  },
+  {
+    "id": "finally",
+    "title": "最终清理",
+    "source": "https://docs.python.org/3/tutorial/errors.html#defining-clean-up-actions",
+    "text": "finally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。"
+  }
+]

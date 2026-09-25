@@ -1,0 +1,1115 @@
+{
+  "created_at": "2026-09-25T01:31:47.617566+00:00",
+  "python": "3.14.3",
+  "dataset": "python-docs-zh-v0.1",
+  "split": "test",
+  "corpus_sha256": "4a2407b6336e458e85e3650e64f1d0a088f0b95834ced88b9f6b847f878fae97",
+  "questions_sha256": "cfde916e42bf3838a2133dae6ec40e3001a51b4f6a41416574da274ed92ae910",
+  "embedding_model": null,
+  "generation": false,
+  "latency_note": "Sequential end-to-end retrieval and extractive response; first dense query includes indexing.",
+  "results": [
+    {
+      "mode": "bm25",
+      "k": 3,
+      "min_overlap": 0.15,
+      "summary": {
+        "questions": 50,
+        "answerable": 34,
+        "unanswerable": 16,
+        "recall_at_k": 1.0,
+        "mrr_at_k": 0.9705882352941176,
+        "all_evidence_recall_at_k": 1.0,
+        "unanswerable_abstention_rate": 0.1875,
+        "unanswerable_false_acceptance_rate": 0.8125,
+        "answerable_acceptance_rate": 0.9411764705882353,
+        "abstention_precision": 0.6,
+        "answer_coverage": 0.9,
+        "mean_ms": 0.30194,
+        "p95_ms": 0.381
+      },
+      "by_category": {
+        "cross_chunk": {
+          "questions": 2,
+          "answerable": 2,
+          "unanswerable": 0,
+          "recall_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "all_evidence_recall_at_k": 1.0,
+          "unanswerable_abstention_rate": null,
+          "unanswerable_false_acceptance_rate": null,
+          "answerable_acceptance_rate": 1.0,
+          "abstention_precision": null,
+          "answer_coverage": 1.0,
+          "mean_ms": 0.3315,
+          "p95_ms": 0.341
+        },
+        "direct": {
+          "questions": 16,
+          "answerable": 16,
+          "unanswerable": 0,
+          "recall_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "all_evidence_recall_at_k": 1.0,
+          "unanswerable_abstention_rate": null,
+          "unanswerable_false_acceptance_rate": null,
+          "answerable_acceptance_rate": 1.0,
+          "abstention_precision": null,
+          "answer_coverage": 1.0,
+          "mean_ms": 0.341875,
+          "p95_ms": 0.998
+        },
+        "paraphrase": {
+          "questions": 16,
+          "answerable": 16,
+          "unanswerable": 0,
+          "recall_at_k": 1.0,
+          "mrr_at_k": 0.9375,
+          "all_evidence_recall_at_k": 1.0,
+          "unanswerable_abstention_rate": null,
+          "unanswerable_false_acceptance_rate": null,
+          "answerable_acceptance_rate": 0.875,
+          "abstention_precision": 0.0,
+          "answer_coverage": 0.875,
+          "mean_ms": 0.2831875,
+          "p95_ms": 0.332
+        },
+        "unanswerable_near": {
+          "questions": 16,
+          "answerable": 0,
+          "unanswerable": 16,
+          "recall_at_k": null,
+          "mrr_at_k": null,
+          "all_evidence_recall_at_k": null,
+          "unanswerable_abstention_rate": 0.1875,
+          "unanswerable_false_acceptance_rate": 0.8125,
+          "answerable_acceptance_rate": null,
+          "abstention_precision": 1.0,
+          "answer_coverage": 0.8125,
+          "mean_ms": 0.2770625,
+          "p95_ms": 0.381
+        }
+      },
+      "rows": [
+        {
+          "id": "file-mode-q1",
+          "question": "open 默认采用什么模式？",
+          "relevant": [
+            "file-mode"
+          ],
+          "retrieved": [
+            "file-mode",
+            "binary",
+            "stack"
+          ],
+          "status": "evidence",
+          "overlap": 0.375,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "r，只读。",
+          "answer": "open 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\n文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]",
+          "total_ms": 0.326
+        },
+        {
+          "id": "file-mode-q2",
+          "question": "w 打开已有文件会保留旧内容吗？",
+          "relevant": [
+            "file-mode"
+          ],
+          "retrieved": [
+            "file-mode",
+            "file-close",
+            "json"
+          ],
+          "status": "evidence",
+          "overlap": 0.4615,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "不会，会清除旧内容。",
+          "answer": "open 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\n通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\njson.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]",
+          "total_ms": 0.288
+        },
+        {
+          "id": "file-mode-q3",
+          "question": "想保留原文件并在末尾写内容使用什么模式？",
+          "relevant": [
+            "file-mode"
+          ],
+          "retrieved": [
+            "file-mode",
+            "binary",
+            "file-close"
+          ],
+          "status": "evidence",
+          "overlap": 0.1667,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "a。",
+          "answer": "open 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\n文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\n通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]",
+          "total_ms": 0.31
+        },
+        {
+          "id": "file-mode-q4",
+          "question": "同一个文件需要既读又写用什么模式？",
+          "relevant": [
+            "file-mode"
+          ],
+          "retrieved": [
+            "file-mode",
+            "binary",
+            "list-edit"
+          ],
+          "status": "abstained",
+          "overlap": 0.1333,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "r+。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.279
+        },
+        {
+          "id": "file-mode-q5",
+          "question": "open 同时打开文件的系统上限是多少？",
+          "relevant": [],
+          "retrieved": [
+            "file-mode",
+            "file-close",
+            "json"
+          ],
+          "status": "evidence",
+          "overlap": 0.2143,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "open 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\n通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\njson.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]",
+          "total_ms": 0.276
+        },
+        {
+          "id": "file-mode-q6",
+          "question": "a 模式对多进程同时写入提供什么事务隔离级别？",
+          "relevant": [],
+          "retrieved": [
+            "file-mode",
+            "binary",
+            "json"
+          ],
+          "status": "evidence",
+          "overlap": 0.15,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "open 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\n文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\njson.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]",
+          "total_ms": 0.323
+        },
+        {
+          "id": "binary-q1",
+          "question": "二进制模式读写的对象类型是什么？",
+          "relevant": [
+            "binary"
+          ],
+          "retrieved": [
+            "binary",
+            "file-mode",
+            "json"
+          ],
+          "status": "evidence",
+          "overlap": 0.4286,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "bytes。",
+          "answer": "文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\njson.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]",
+          "total_ms": 0.998
+        },
+        {
+          "id": "binary-q2",
+          "question": "二进制打开文件时能指定 encoding 吗？",
+          "relevant": [
+            "binary"
+          ],
+          "retrieved": [
+            "binary",
+            "file-mode",
+            "file-close"
+          ],
+          "status": "evidence",
+          "overlap": 0.5,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "不能。",
+          "answer": "文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\n通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]",
+          "total_ms": 0.586
+        },
+        {
+          "id": "binary-q3",
+          "question": "图片文件为什么不应该用文本模式处理？",
+          "relevant": [
+            "binary"
+          ],
+          "retrieved": [
+            "binary",
+            "file-mode",
+            "exception-match"
+          ],
+          "status": "evidence",
+          "overlap": 0.3125,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "换行转换可能损坏二进制数据。",
+          "answer": "文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]",
+          "total_ms": 0.331
+        },
+        {
+          "id": "binary-q4",
+          "question": "文本模式操作字符串还是 bytes？",
+          "relevant": [
+            "binary"
+          ],
+          "retrieved": [
+            "binary",
+            "file-mode",
+            "json"
+          ],
+          "status": "evidence",
+          "overlap": 0.5455,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "字符串。",
+          "answer": "文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\njson.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]",
+          "total_ms": 0.314
+        },
+        {
+          "id": "binary-q5",
+          "question": "二进制模式读取一张图片需要多少毫秒？",
+          "relevant": [],
+          "retrieved": [
+            "binary",
+            "file-mode",
+            "pass"
+          ],
+          "status": "evidence",
+          "overlap": 0.375,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\npass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。 [pass]",
+          "total_ms": 0.296
+        },
+        {
+          "id": "binary-q6",
+          "question": "文本编码转换在该服务器上的吞吐量是多少？",
+          "relevant": [],
+          "retrieved": [
+            "binary",
+            "json"
+          ],
+          "status": "evidence",
+          "overlap": 0.1667,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\njson.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]",
+          "total_ms": 0.287
+        },
+        {
+          "id": "file-close-q1",
+          "question": "with 代码块结束后文件会自动关闭吗？",
+          "relevant": [
+            "file-close"
+          ],
+          "retrieved": [
+            "file-close",
+            "try-else",
+            "loop-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.6429,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "会。",
+          "answer": "通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]",
+          "total_ms": 0.304
+        },
+        {
+          "id": "file-close-q2",
+          "question": "with 内出现异常时文件还能自动关闭吗？",
+          "relevant": [
+            "file-close"
+          ],
+          "retrieved": [
+            "file-close",
+            "try-else",
+            "file-mode"
+          ],
+          "status": "evidence",
+          "overlap": 0.4,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "能。",
+          "answer": "通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]",
+          "total_ms": 0.316
+        },
+        {
+          "id": "file-close-q3",
+          "question": "关闭后的文件还能继续读写吗？",
+          "relevant": [
+            "file-close"
+          ],
+          "retrieved": [
+            "file-close",
+            "file-mode",
+            "binary"
+          ],
+          "status": "evidence",
+          "overlap": 0.75,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "不能。",
+          "answer": "通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\n文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]",
+          "total_ms": 0.276
+        },
+        {
+          "id": "file-close-q4",
+          "question": "不想手动关闭文件应采用什么管理方式？",
+          "relevant": [
+            "file-close"
+          ],
+          "retrieved": [
+            "file-close",
+            "binary",
+            "stack"
+          ],
+          "status": "evidence",
+          "overlap": 0.3125,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "使用 with。",
+          "answer": "通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\n文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]",
+          "total_ms": 0.31
+        },
+        {
+          "id": "file-close-q5",
+          "question": "with 关闭文件后备份系统多久完成同步？",
+          "relevant": [],
+          "retrieved": [
+            "file-close",
+            "file-mode",
+            "json"
+          ],
+          "status": "evidence",
+          "overlap": 0.2667,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\njson.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]",
+          "total_ms": 0.278
+        },
+        {
+          "id": "file-close-q6",
+          "question": "with 管理文件时系统默认设置多长的锁超时？",
+          "relevant": [],
+          "retrieved": [
+            "file-close",
+            "file-mode",
+            "binary"
+          ],
+          "status": "evidence",
+          "overlap": 0.2353,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\n文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]",
+          "total_ms": 0.294
+        },
+        {
+          "id": "json-q1",
+          "question": "将对象变为 JSON 字符串用哪个函数？",
+          "relevant": [
+            "json"
+          ],
+          "retrieved": [
+            "json",
+            "binary",
+            "loop-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.3333,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "json.dumps。",
+          "answer": "json.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]\n\n文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]",
+          "total_ms": 0.276
+        },
+        {
+          "id": "json-q2",
+          "question": "把 JSON 数据写入文件对象用哪个函数？",
+          "relevant": [
+            "json"
+          ],
+          "retrieved": [
+            "json",
+            "file-mode",
+            "pass"
+          ],
+          "status": "evidence",
+          "overlap": 0.5,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "json.dump。",
+          "answer": "json.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\npass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。 [pass]",
+          "total_ms": 0.275
+        },
+        {
+          "id": "json-q3",
+          "question": "从文件对象读取 JSON 数据用什么？",
+          "relevant": [
+            "json"
+          ],
+          "retrieved": [
+            "json",
+            "file-close",
+            "list-edit"
+          ],
+          "status": "evidence",
+          "overlap": 0.5455,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "json.load。",
+          "answer": "json.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]\n\n通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\nappend 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]",
+          "total_ms": 0.271
+        },
+        {
+          "id": "json-q4",
+          "question": "需要跨应用交换结构化数据可以使用哪种格式？",
+          "relevant": [
+            "json"
+          ],
+          "retrieved": [
+            "json",
+            "raise",
+            "pass"
+          ],
+          "status": "evidence",
+          "overlap": 0.3684,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "JSON。",
+          "answer": "json.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]\n\nraise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\npass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。 [pass]",
+          "total_ms": 0.298
+        },
+        {
+          "id": "json-q5",
+          "question": "JSON 文件最大支持多少 GB？",
+          "relevant": [],
+          "retrieved": [
+            "json",
+            "file-close",
+            "file-mode"
+          ],
+          "status": "evidence",
+          "overlap": 0.2222,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "json.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]\n\n通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]",
+          "total_ms": 0.223
+        },
+        {
+          "id": "json-q6",
+          "question": "json.dump 是否为每次写入自动生成数字签名？",
+          "relevant": [],
+          "retrieved": [
+            "json",
+            "file-close",
+            "file-mode"
+          ],
+          "status": "evidence",
+          "overlap": 0.1875,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "json.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]\n\n通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]",
+          "total_ms": 0.381
+        },
+        {
+          "id": "exception-match-q1",
+          "question": "try 中出现异常后还执行其中剩余语句吗？",
+          "relevant": [
+            "exception-match"
+          ],
+          "retrieved": [
+            "exception-match",
+            "loop-control",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.375,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "不执行，寻找匹配的 except。",
+          "answer": "try 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\nbreak 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.309
+        },
+        {
+          "id": "exception-match-q2",
+          "question": "没有匹配 except 时异常怎么办？",
+          "relevant": [
+            "exception-match"
+          ],
+          "retrieved": [
+            "exception-match",
+            "try-else",
+            "list-edit"
+          ],
+          "status": "evidence",
+          "overlap": 0.5556,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "向外层传递。",
+          "answer": "try 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nappend 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]",
+          "total_ms": 0.252
+        },
+        {
+          "id": "exception-match-q3",
+          "question": "异常一直未被处理会怎样？",
+          "relevant": [
+            "exception-match"
+          ],
+          "retrieved": [
+            "exception-match",
+            "raise",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "终止执行并报告错误。",
+          "answer": "try 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\nraise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.247
+        },
+        {
+          "id": "exception-match-q4",
+          "question": "处理器会处理所有不匹配的异常吗？",
+          "relevant": [
+            "exception-match"
+          ],
+          "retrieved": [
+            "exception-match",
+            "raise",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.3846,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "不会，需要匹配。",
+          "answer": "try 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\nraise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.268
+        },
+        {
+          "id": "exception-match-q5",
+          "question": "except 捕获异常的精确性能开销是多少？",
+          "relevant": [],
+          "retrieved": [
+            "exception-match",
+            "try-else",
+            "raise"
+          ],
+          "status": "abstained",
+          "overlap": 0.1429,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.245
+        },
+        {
+          "id": "exception-match-q6",
+          "question": "未处理异常如何自动发送到企业告警群？",
+          "relevant": [],
+          "retrieved": [
+            "exception-match",
+            "raise",
+            "file-close"
+          ],
+          "status": "evidence",
+          "overlap": 0.1875,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "try 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\nraise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\n通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]",
+          "total_ms": 0.255
+        },
+        {
+          "id": "try-else-q1",
+          "question": "try 的 else 在什么情况下执行？",
+          "relevant": [
+            "try-else"
+          ],
+          "retrieved": [
+            "try-else",
+            "loop-else",
+            "finally"
+          ],
+          "status": "evidence",
+          "overlap": 0.4,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "try 没有抛出异常时。",
+          "answer": "try 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\nfinally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]",
+          "total_ms": 0.244
+        },
+        {
+          "id": "try-else-q2",
+          "question": "try 已经抛出异常还会执行它的 else 吗？",
+          "relevant": [
+            "try-else"
+          ],
+          "retrieved": [
+            "try-else",
+            "finally",
+            "exception-match"
+          ],
+          "status": "evidence",
+          "overlap": 0.4286,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "不会。",
+          "answer": "try 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nfinally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]",
+          "total_ms": 0.285
+        },
+        {
+          "id": "try-else-q3",
+          "question": "只应在 try 成功后执行的代码适合放在哪里？",
+          "relevant": [
+            "try-else"
+          ],
+          "retrieved": [
+            "try-else",
+            "finally",
+            "pass"
+          ],
+          "status": "evidence",
+          "overlap": 0.6875,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "else 子句。",
+          "answer": "try 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nfinally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]\n\npass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。 [pass]",
+          "total_ms": 0.288
+        },
+        {
+          "id": "try-else-q4",
+          "question": "为什么不把所有后续代码都塞进 try？",
+          "relevant": [
+            "try-else"
+          ],
+          "retrieved": [
+            "try-else",
+            "range",
+            "finally"
+          ],
+          "status": "abstained",
+          "overlap": 0.1429,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "避免误捕获后续代码产生的异常。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.247
+        },
+        {
+          "id": "try-else-q5",
+          "question": "try 的 else 能让错误率降低百分之多少？",
+          "relevant": [],
+          "retrieved": [
+            "try-else",
+            "exception-match",
+            "loop-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.2143,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "try 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]",
+          "total_ms": 0.296
+        },
+        {
+          "id": "try-else-q6",
+          "question": "try 的 else 在这台机器上的执行耗时是多少？",
+          "relevant": [],
+          "retrieved": [
+            "try-else",
+            "loop-else",
+            "finally"
+          ],
+          "status": "evidence",
+          "overlap": 0.25,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "try 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\nfinally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]",
+          "total_ms": 0.303
+        },
+        {
+          "id": "raise-q1",
+          "question": "主动抛出异常用哪个语句？",
+          "relevant": [
+            "raise"
+          ],
+          "retrieved": [
+            "raise",
+            "exception-match",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.5,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "raise。",
+          "answer": "raise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.248
+        },
+        {
+          "id": "raise-q2",
+          "question": "处理异常时怎样原样重新抛出？",
+          "relevant": [
+            "raise"
+          ],
+          "retrieved": [
+            "raise",
+            "try-else",
+            "exception-match"
+          ],
+          "status": "evidence",
+          "overlap": 0.4167,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "使用不带参数的 raise。",
+          "answer": "raise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]",
+          "total_ms": 0.241
+        },
+        {
+          "id": "raise-q3",
+          "question": "raise 必须是解释器自动执行的吗？",
+          "relevant": [
+            "raise"
+          ],
+          "retrieved": [
+            "try-else",
+            "raise",
+            "file-close"
+          ],
+          "status": "evidence",
+          "overlap": 0.1667,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "不是，代码可以主动使用。",
+          "answer": "try 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nraise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\n通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]",
+          "total_ms": 0.238
+        },
+        {
+          "id": "raise-q4",
+          "question": "单独的 raise 在异常处理过程中重新抛出哪个异常？",
+          "relevant": [
+            "raise"
+          ],
+          "retrieved": [
+            "raise",
+            "exception-match",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.7059,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "当前正在处理的异常。",
+          "answer": "raise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.332
+        },
+        {
+          "id": "raise-q5",
+          "question": "raise 会自动重试网络请求几次？",
+          "relevant": [],
+          "retrieved": [
+            "raise",
+            "file-close"
+          ],
+          "status": "abstained",
+          "overlap": 0.0909,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.189
+        },
+        {
+          "id": "raise-q6",
+          "question": "raise 抛出异常后日志默认保存多少天？",
+          "relevant": [],
+          "retrieved": [
+            "raise",
+            "exception-match",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.2857,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "raise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.256
+        },
+        {
+          "id": "finally-q1",
+          "question": "try 正常结束会执行 finally 吗？",
+          "relevant": [
+            "finally"
+          ],
+          "retrieved": [
+            "finally",
+            "loop-else",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.5556,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "会。",
+          "answer": "finally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.25
+        },
+        {
+          "id": "finally-q2",
+          "question": "Python 异常离开 try 时会执行 finally 吗？",
+          "relevant": [
+            "finally"
+          ],
+          "retrieved": [
+            "finally",
+            "try-else",
+            "exception-match"
+          ],
+          "status": "evidence",
+          "overlap": 0.8,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "test",
+          "reference_answer": "会。",
+          "answer": "finally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]",
+          "total_ms": 0.272
+        },
+        {
+          "id": "finally-q3",
+          "question": "try 中 return 返回之前执行 finally 吗？",
+          "relevant": [
+            "finally"
+          ],
+          "retrieved": [
+            "finally",
+            "try-else",
+            "loop-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.4,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "会。",
+          "answer": "finally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]",
+          "total_ms": 0.257
+        },
+        {
+          "id": "finally-q4",
+          "question": "退出 try 前必须进行的清理适合放在哪里？",
+          "relevant": [
+            "finally"
+          ],
+          "retrieved": [
+            "try-else",
+            "finally",
+            "loop-control"
+          ],
+          "status": "evidence",
+          "overlap": 0.2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "category": "paraphrase",
+          "split": "test",
+          "reference_answer": "finally。",
+          "answer": "try 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nfinally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]\n\nbreak 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]",
+          "total_ms": 0.265
+        },
+        {
+          "id": "finally-q5",
+          "question": "操作系统强制终止进程时 finally 能保证执行吗？",
+          "relevant": [],
+          "retrieved": [
+            "finally",
+            "exception-match",
+            "list-pop"
+          ],
+          "status": "abstained",
+          "overlap": 0.125,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.279
+        },
+        {
+          "id": "finally-q6",
+          "question": "finally 中的清理默认允许执行多少秒？",
+          "relevant": [],
+          "retrieved": [
+            "finally",
+            "try-else",
+            "file-mode"
+          ],
+          "status": "evidence",
+          "overlap": 0.3077,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "test",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "finally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]",
+          "total_ms": 0.252
+        },
+        {
+          "id": "cross-test-file",
+          "question": "文件的追加模式是什么，怎样确保代码块结束后关闭它？",
+          "relevant": [
+            "file-mode",
+            "file-close"
+          ],
+          "retrieved": [
+            "file-close",
+            "file-mode",
+            "binary"
+          ],
+          "status": "evidence",
+          "overlap": 0.2857,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "cross_chunk",
+          "split": "test",
+          "reference_answer": "用 a 模式追加，通过 with 管理文件。",
+          "answer": "通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]\n\nopen 的 r 模式只读，w 模式写入并清除同名已有文件内容，a 模式追加，r+ 可读写。省略模式时默认为 r。 [file-mode]\n\n文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]",
+          "total_ms": 0.322
+        },
+        {
+          "id": "cross-test-error",
+          "question": "异常不匹配 except 时怎样传递，处理时怎样重新抛出当前异常？",
+          "relevant": [
+            "exception-match",
+            "raise"
+          ],
+          "retrieved": [
+            "raise",
+            "exception-match",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.3889,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "cross_chunk",
+          "split": "test",
+          "reference_answer": "向外层传递；使用不带参数的 raise 重新抛出。",
+          "answer": "raise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.341
+        }
+      ]
+    }
+  ]
+}

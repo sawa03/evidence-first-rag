@@ -1,0 +1,1074 @@
+[
+  {
+    "id": "list-edit-q1",
+    "question": "append 和 extend 添加元素有什么区别？",
+    "relevant": [
+      "list-edit"
+    ],
+    "reference_answer": "append 添加一个对象；extend 逐个添加元素。",
+    "category": "direct",
+    "topic": "list-edit",
+    "split": "dev"
+  },
+  {
+    "id": "list-edit-q2",
+    "question": "remove 遇到不存在的值会怎样？",
+    "relevant": [
+      "list-edit"
+    ],
+    "reference_answer": "抛出 ValueError。",
+    "category": "direct",
+    "topic": "list-edit",
+    "split": "dev"
+  },
+  {
+    "id": "list-edit-q3",
+    "question": "列表中同一个值出现多次，remove 会全部删掉吗？",
+    "relevant": [
+      "list-edit"
+    ],
+    "reference_answer": "只删除首个匹配值。",
+    "category": "paraphrase",
+    "topic": "list-edit",
+    "split": "dev"
+  },
+  {
+    "id": "list-edit-q4",
+    "question": "想将一批元素逐个放到列表末尾用什么方法？",
+    "relevant": [
+      "list-edit"
+    ],
+    "reference_answer": "extend。",
+    "category": "paraphrase",
+    "topic": "list-edit",
+    "split": "dev"
+  },
+  {
+    "id": "list-edit-q5",
+    "question": "列表 append 在这台电脑上每秒能执行多少次？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "list-edit",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "list-edit-q6",
+    "question": "remove 删除元素后多久会把内存归还给操作系统？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "list-edit",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "list-pop-q1",
+    "question": "pop 不写索引会删除哪里？",
+    "relevant": [
+      "list-pop"
+    ],
+    "reference_answer": "末尾元素。",
+    "category": "direct",
+    "topic": "list-pop",
+    "split": "dev"
+  },
+  {
+    "id": "list-pop-q2",
+    "question": "空列表调用 pop 会发生什么？",
+    "relevant": [
+      "list-pop"
+    ],
+    "reference_answer": "抛出 IndexError。",
+    "category": "direct",
+    "topic": "list-pop",
+    "split": "dev"
+  },
+  {
+    "id": "list-pop-q3",
+    "question": "如何一次清空列表？",
+    "relevant": [
+      "list-pop"
+    ],
+    "reference_answer": "使用 clear。",
+    "category": "paraphrase",
+    "topic": "list-pop",
+    "split": "dev"
+  },
+  {
+    "id": "list-pop-q4",
+    "question": "需要取出并移除指定位置的元素，该用什么？",
+    "relevant": [
+      "list-pop"
+    ],
+    "reference_answer": "使用 pop。",
+    "category": "paraphrase",
+    "topic": "list-pop",
+    "split": "dev"
+  },
+  {
+    "id": "list-pop-q5",
+    "question": "pop 删除一个元素的精确耗时是多少纳秒？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "list-pop",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "list-pop-q6",
+    "question": "clear 操作是否保证立即减少进程的物理内存？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "list-pop",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "stack-q1",
+    "question": "用列表实现栈时怎样入栈？",
+    "relevant": [
+      "stack"
+    ],
+    "reference_answer": "append。",
+    "category": "direct",
+    "topic": "stack",
+    "split": "dev"
+  },
+  {
+    "id": "stack-q2",
+    "question": "列表栈怎样出栈？",
+    "relevant": [
+      "stack"
+    ],
+    "reference_answer": "不带索引的 pop。",
+    "category": "direct",
+    "topic": "stack",
+    "split": "dev"
+  },
+  {
+    "id": "stack-q3",
+    "question": "最后放进栈的元素会先被取出吗？",
+    "relevant": [
+      "stack"
+    ],
+    "reference_answer": "会，栈是后进先出。",
+    "category": "paraphrase",
+    "topic": "stack",
+    "split": "dev"
+  },
+  {
+    "id": "stack-q4",
+    "question": "栈按什么顺序取出元素？",
+    "relevant": [
+      "stack"
+    ],
+    "reference_answer": "后进先出。",
+    "category": "paraphrase",
+    "topic": "stack",
+    "split": "dev"
+  },
+  {
+    "id": "stack-q5",
+    "question": "栈默认最多允许存储多少个元素？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "stack",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "stack-q6",
+    "question": "列表栈如何配置线程安全锁的超时时间？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "stack",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "queue-q1",
+    "question": "队列采用什么取出顺序？",
+    "relevant": [
+      "queue"
+    ],
+    "reference_answer": "先进先出。",
+    "category": "direct",
+    "topic": "queue",
+    "split": "dev"
+  },
+  {
+    "id": "queue-q2",
+    "question": "deque 从左边取出元素用什么方法？",
+    "relevant": [
+      "queue"
+    ],
+    "reference_answer": "popleft。",
+    "category": "direct",
+    "topic": "queue",
+    "split": "dev"
+  },
+  {
+    "id": "queue-q3",
+    "question": "为何列表不适合频繁从头部移除？",
+    "relevant": [
+      "queue"
+    ],
+    "reference_answer": "需要移动其余元素。",
+    "category": "paraphrase",
+    "topic": "queue",
+    "split": "dev"
+  },
+  {
+    "id": "queue-q4",
+    "question": "需要高效处理两端增删应该选哪个容器？",
+    "relevant": [
+      "queue"
+    ],
+    "reference_answer": "collections.deque。",
+    "category": "paraphrase",
+    "topic": "queue",
+    "split": "dev"
+  },
+  {
+    "id": "queue-q5",
+    "question": "deque 在八核机器上每秒能处理多少条消息？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "queue",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "queue-q6",
+    "question": "队列消息如何持久化到远程数据库？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "queue",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "range-q1",
+    "question": "range 的终点会包含在结果里吗？",
+    "relevant": [
+      "range"
+    ],
+    "reference_answer": "不会。",
+    "category": "direct",
+    "topic": "range",
+    "split": "dev"
+  },
+  {
+    "id": "range-q2",
+    "question": "range 能指定步长吗？",
+    "relevant": [
+      "range"
+    ],
+    "reference_answer": "能。",
+    "category": "direct",
+    "topic": "range",
+    "split": "dev"
+  },
+  {
+    "id": "range-q3",
+    "question": "整数范围会预先创建完整列表吗？",
+    "relevant": [
+      "range"
+    ],
+    "reference_answer": "不会。",
+    "category": "paraphrase",
+    "topic": "range",
+    "split": "dev"
+  },
+  {
+    "id": "range-q4",
+    "question": "怎样改变 range 产生整数的间隔？",
+    "relevant": [
+      "range"
+    ],
+    "reference_answer": "指定步长。",
+    "category": "paraphrase",
+    "topic": "range",
+    "split": "dev"
+  },
+  {
+    "id": "range-q5",
+    "question": "range 对象在所有解释器中固定占用多少字节？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "range",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "range-q6",
+    "question": "range 的默认最大运行时间是多少？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "range",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "loop-control-q1",
+    "question": "break 会退出哪层循环？",
+    "relevant": [
+      "loop-control"
+    ],
+    "reference_answer": "最内层循环。",
+    "category": "direct",
+    "topic": "loop-control",
+    "split": "dev"
+  },
+  {
+    "id": "loop-control-q2",
+    "question": "continue 后会继续执行当前轮剩余语句吗？",
+    "relevant": [
+      "loop-control"
+    ],
+    "reference_answer": "不会，继续下一轮。",
+    "category": "direct",
+    "topic": "loop-control",
+    "split": "dev"
+  },
+  {
+    "id": "loop-control-q3",
+    "question": "只想跳过这一轮循环该用什么？",
+    "relevant": [
+      "loop-control"
+    ],
+    "reference_answer": "continue。",
+    "category": "paraphrase",
+    "topic": "loop-control",
+    "split": "dev"
+  },
+  {
+    "id": "loop-control-q4",
+    "question": "在嵌套循环中 break 会终止所有外层循环吗？",
+    "relevant": [
+      "loop-control"
+    ],
+    "reference_answer": "不会，只退出最内层。",
+    "category": "paraphrase",
+    "topic": "loop-control",
+    "split": "dev"
+  },
+  {
+    "id": "loop-control-q5",
+    "question": "执行 break 能节省多少毫秒？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "loop-control",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "loop-control-q6",
+    "question": "continue 对 CPU 分支预测的命中率是多少？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "loop-control",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "loop-else-q1",
+    "question": "for 正常遍历结束会执行循环 else 吗？",
+    "relevant": [
+      "loop-else"
+    ],
+    "reference_answer": "会。",
+    "category": "direct",
+    "topic": "loop-else",
+    "split": "dev"
+  },
+  {
+    "id": "loop-else-q2",
+    "question": "break 退出后会进入循环 else 吗？",
+    "relevant": [
+      "loop-else"
+    ],
+    "reference_answer": "不会。",
+    "category": "direct",
+    "topic": "loop-else",
+    "split": "dev"
+  },
+  {
+    "id": "loop-else-q3",
+    "question": "while 条件变成假时能进入循环 else 吗？",
+    "relevant": [
+      "loop-else"
+    ],
+    "reference_answer": "能。",
+    "category": "paraphrase",
+    "topic": "loop-else",
+    "split": "dev"
+  },
+  {
+    "id": "loop-else-q4",
+    "question": "return 提前结束会跳过循环 else 吗？",
+    "relevant": [
+      "loop-else"
+    ],
+    "reference_answer": "会。",
+    "category": "paraphrase",
+    "topic": "loop-else",
+    "split": "dev"
+  },
+  {
+    "id": "loop-else-q5",
+    "question": "循环 else 对程序吞吐量的平均提升是多少？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "loop-else",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "loop-else-q6",
+    "question": "循环 else 最初是在哪次设计会议上决定加入的？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "loop-else",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "pass-q1",
+    "question": "pass 语句会执行什么动作？",
+    "relevant": [
+      "pass"
+    ],
+    "reference_answer": "不执行任何动作。",
+    "category": "direct",
+    "topic": "pass",
+    "split": "dev"
+  },
+  {
+    "id": "pass-q2",
+    "question": "空函数暂时没实现可以用什么占位？",
+    "relevant": [
+      "pass"
+    ],
+    "reference_answer": "pass。",
+    "category": "direct",
+    "topic": "pass",
+    "split": "dev"
+  },
+  {
+    "id": "pass-q3",
+    "question": "空类需要满足语法要求可以写什么？",
+    "relevant": [
+      "pass"
+    ],
+    "reference_answer": "pass。",
+    "category": "paraphrase",
+    "topic": "pass",
+    "split": "dev"
+  },
+  {
+    "id": "pass-q4",
+    "question": "条件分支暂时没有要做的事能放 pass 吗？",
+    "relevant": [
+      "pass"
+    ],
+    "reference_answer": "能。",
+    "category": "paraphrase",
+    "topic": "pass",
+    "split": "dev"
+  },
+  {
+    "id": "pass-q5",
+    "question": "pass 在不同 Python 版本中的机器码完全一样吗？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "pass",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "pass-q6",
+    "question": "pass 在嵌入式设备上消耗多少焦耳？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "pass",
+    "split": "dev",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "file-mode-q1",
+    "question": "open 默认采用什么模式？",
+    "relevant": [
+      "file-mode"
+    ],
+    "reference_answer": "r，只读。",
+    "category": "direct",
+    "topic": "file-mode",
+    "split": "test"
+  },
+  {
+    "id": "file-mode-q2",
+    "question": "w 打开已有文件会保留旧内容吗？",
+    "relevant": [
+      "file-mode"
+    ],
+    "reference_answer": "不会，会清除旧内容。",
+    "category": "direct",
+    "topic": "file-mode",
+    "split": "test"
+  },
+  {
+    "id": "file-mode-q3",
+    "question": "想保留原文件并在末尾写内容使用什么模式？",
+    "relevant": [
+      "file-mode"
+    ],
+    "reference_answer": "a。",
+    "category": "paraphrase",
+    "topic": "file-mode",
+    "split": "test"
+  },
+  {
+    "id": "file-mode-q4",
+    "question": "同一个文件需要既读又写用什么模式？",
+    "relevant": [
+      "file-mode"
+    ],
+    "reference_answer": "r+。",
+    "category": "paraphrase",
+    "topic": "file-mode",
+    "split": "test"
+  },
+  {
+    "id": "file-mode-q5",
+    "question": "open 同时打开文件的系统上限是多少？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "file-mode",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "file-mode-q6",
+    "question": "a 模式对多进程同时写入提供什么事务隔离级别？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "file-mode",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "binary-q1",
+    "question": "二进制模式读写的对象类型是什么？",
+    "relevant": [
+      "binary"
+    ],
+    "reference_answer": "bytes。",
+    "category": "direct",
+    "topic": "binary",
+    "split": "test"
+  },
+  {
+    "id": "binary-q2",
+    "question": "二进制打开文件时能指定 encoding 吗？",
+    "relevant": [
+      "binary"
+    ],
+    "reference_answer": "不能。",
+    "category": "direct",
+    "topic": "binary",
+    "split": "test"
+  },
+  {
+    "id": "binary-q3",
+    "question": "图片文件为什么不应该用文本模式处理？",
+    "relevant": [
+      "binary"
+    ],
+    "reference_answer": "换行转换可能损坏二进制数据。",
+    "category": "paraphrase",
+    "topic": "binary",
+    "split": "test"
+  },
+  {
+    "id": "binary-q4",
+    "question": "文本模式操作字符串还是 bytes？",
+    "relevant": [
+      "binary"
+    ],
+    "reference_answer": "字符串。",
+    "category": "paraphrase",
+    "topic": "binary",
+    "split": "test"
+  },
+  {
+    "id": "binary-q5",
+    "question": "二进制模式读取一张图片需要多少毫秒？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "binary",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "binary-q6",
+    "question": "文本编码转换在该服务器上的吞吐量是多少？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "binary",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "file-close-q1",
+    "question": "with 代码块结束后文件会自动关闭吗？",
+    "relevant": [
+      "file-close"
+    ],
+    "reference_answer": "会。",
+    "category": "direct",
+    "topic": "file-close",
+    "split": "test"
+  },
+  {
+    "id": "file-close-q2",
+    "question": "with 内出现异常时文件还能自动关闭吗？",
+    "relevant": [
+      "file-close"
+    ],
+    "reference_answer": "能。",
+    "category": "direct",
+    "topic": "file-close",
+    "split": "test"
+  },
+  {
+    "id": "file-close-q3",
+    "question": "关闭后的文件还能继续读写吗？",
+    "relevant": [
+      "file-close"
+    ],
+    "reference_answer": "不能。",
+    "category": "paraphrase",
+    "topic": "file-close",
+    "split": "test"
+  },
+  {
+    "id": "file-close-q4",
+    "question": "不想手动关闭文件应采用什么管理方式？",
+    "relevant": [
+      "file-close"
+    ],
+    "reference_answer": "使用 with。",
+    "category": "paraphrase",
+    "topic": "file-close",
+    "split": "test"
+  },
+  {
+    "id": "file-close-q5",
+    "question": "with 关闭文件后备份系统多久完成同步？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "file-close",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "file-close-q6",
+    "question": "with 管理文件时系统默认设置多长的锁超时？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "file-close",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "json-q1",
+    "question": "将对象变为 JSON 字符串用哪个函数？",
+    "relevant": [
+      "json"
+    ],
+    "reference_answer": "json.dumps。",
+    "category": "direct",
+    "topic": "json",
+    "split": "test"
+  },
+  {
+    "id": "json-q2",
+    "question": "把 JSON 数据写入文件对象用哪个函数？",
+    "relevant": [
+      "json"
+    ],
+    "reference_answer": "json.dump。",
+    "category": "direct",
+    "topic": "json",
+    "split": "test"
+  },
+  {
+    "id": "json-q3",
+    "question": "从文件对象读取 JSON 数据用什么？",
+    "relevant": [
+      "json"
+    ],
+    "reference_answer": "json.load。",
+    "category": "paraphrase",
+    "topic": "json",
+    "split": "test"
+  },
+  {
+    "id": "json-q4",
+    "question": "需要跨应用交换结构化数据可以使用哪种格式？",
+    "relevant": [
+      "json"
+    ],
+    "reference_answer": "JSON。",
+    "category": "paraphrase",
+    "topic": "json",
+    "split": "test"
+  },
+  {
+    "id": "json-q5",
+    "question": "JSON 文件最大支持多少 GB？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "json",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "json-q6",
+    "question": "json.dump 是否为每次写入自动生成数字签名？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "json",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "exception-match-q1",
+    "question": "try 中出现异常后还执行其中剩余语句吗？",
+    "relevant": [
+      "exception-match"
+    ],
+    "reference_answer": "不执行，寻找匹配的 except。",
+    "category": "direct",
+    "topic": "exception-match",
+    "split": "test"
+  },
+  {
+    "id": "exception-match-q2",
+    "question": "没有匹配 except 时异常怎么办？",
+    "relevant": [
+      "exception-match"
+    ],
+    "reference_answer": "向外层传递。",
+    "category": "direct",
+    "topic": "exception-match",
+    "split": "test"
+  },
+  {
+    "id": "exception-match-q3",
+    "question": "异常一直未被处理会怎样？",
+    "relevant": [
+      "exception-match"
+    ],
+    "reference_answer": "终止执行并报告错误。",
+    "category": "paraphrase",
+    "topic": "exception-match",
+    "split": "test"
+  },
+  {
+    "id": "exception-match-q4",
+    "question": "处理器会处理所有不匹配的异常吗？",
+    "relevant": [
+      "exception-match"
+    ],
+    "reference_answer": "不会，需要匹配。",
+    "category": "paraphrase",
+    "topic": "exception-match",
+    "split": "test"
+  },
+  {
+    "id": "exception-match-q5",
+    "question": "except 捕获异常的精确性能开销是多少？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "exception-match",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "exception-match-q6",
+    "question": "未处理异常如何自动发送到企业告警群？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "exception-match",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "try-else-q1",
+    "question": "try 的 else 在什么情况下执行？",
+    "relevant": [
+      "try-else"
+    ],
+    "reference_answer": "try 没有抛出异常时。",
+    "category": "direct",
+    "topic": "try-else",
+    "split": "test"
+  },
+  {
+    "id": "try-else-q2",
+    "question": "try 已经抛出异常还会执行它的 else 吗？",
+    "relevant": [
+      "try-else"
+    ],
+    "reference_answer": "不会。",
+    "category": "direct",
+    "topic": "try-else",
+    "split": "test"
+  },
+  {
+    "id": "try-else-q3",
+    "question": "只应在 try 成功后执行的代码适合放在哪里？",
+    "relevant": [
+      "try-else"
+    ],
+    "reference_answer": "else 子句。",
+    "category": "paraphrase",
+    "topic": "try-else",
+    "split": "test"
+  },
+  {
+    "id": "try-else-q4",
+    "question": "为什么不把所有后续代码都塞进 try？",
+    "relevant": [
+      "try-else"
+    ],
+    "reference_answer": "避免误捕获后续代码产生的异常。",
+    "category": "paraphrase",
+    "topic": "try-else",
+    "split": "test"
+  },
+  {
+    "id": "try-else-q5",
+    "question": "try 的 else 能让错误率降低百分之多少？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "try-else",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "try-else-q6",
+    "question": "try 的 else 在这台机器上的执行耗时是多少？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "try-else",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "raise-q1",
+    "question": "主动抛出异常用哪个语句？",
+    "relevant": [
+      "raise"
+    ],
+    "reference_answer": "raise。",
+    "category": "direct",
+    "topic": "raise",
+    "split": "test"
+  },
+  {
+    "id": "raise-q2",
+    "question": "处理异常时怎样原样重新抛出？",
+    "relevant": [
+      "raise"
+    ],
+    "reference_answer": "使用不带参数的 raise。",
+    "category": "direct",
+    "topic": "raise",
+    "split": "test"
+  },
+  {
+    "id": "raise-q3",
+    "question": "raise 必须是解释器自动执行的吗？",
+    "relevant": [
+      "raise"
+    ],
+    "reference_answer": "不是，代码可以主动使用。",
+    "category": "paraphrase",
+    "topic": "raise",
+    "split": "test"
+  },
+  {
+    "id": "raise-q4",
+    "question": "单独的 raise 在异常处理过程中重新抛出哪个异常？",
+    "relevant": [
+      "raise"
+    ],
+    "reference_answer": "当前正在处理的异常。",
+    "category": "paraphrase",
+    "topic": "raise",
+    "split": "test"
+  },
+  {
+    "id": "raise-q5",
+    "question": "raise 会自动重试网络请求几次？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "raise",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "raise-q6",
+    "question": "raise 抛出异常后日志默认保存多少天？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "raise",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "finally-q1",
+    "question": "try 正常结束会执行 finally 吗？",
+    "relevant": [
+      "finally"
+    ],
+    "reference_answer": "会。",
+    "category": "direct",
+    "topic": "finally",
+    "split": "test"
+  },
+  {
+    "id": "finally-q2",
+    "question": "Python 异常离开 try 时会执行 finally 吗？",
+    "relevant": [
+      "finally"
+    ],
+    "reference_answer": "会。",
+    "category": "direct",
+    "topic": "finally",
+    "split": "test"
+  },
+  {
+    "id": "finally-q3",
+    "question": "try 中 return 返回之前执行 finally 吗？",
+    "relevant": [
+      "finally"
+    ],
+    "reference_answer": "会。",
+    "category": "paraphrase",
+    "topic": "finally",
+    "split": "test"
+  },
+  {
+    "id": "finally-q4",
+    "question": "退出 try 前必须进行的清理适合放在哪里？",
+    "relevant": [
+      "finally"
+    ],
+    "reference_answer": "finally。",
+    "category": "paraphrase",
+    "topic": "finally",
+    "split": "test"
+  },
+  {
+    "id": "finally-q5",
+    "question": "操作系统强制终止进程时 finally 能保证执行吗？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "finally",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "finally-q6",
+    "question": "finally 中的清理默认允许执行多少秒？",
+    "relevant": [],
+    "reference_answer": "证据不足，无法回答。",
+    "category": "unanswerable_near",
+    "topic": "finally",
+    "split": "test",
+    "unanswerable_reason": "冻结语料未提供所询问的条件、数值或保证；不代表外部世界没有答案。"
+  },
+  {
+    "id": "cross-dev-stack",
+    "question": "列表栈和 deque 队列的取出顺序分别是什么？",
+    "relevant": [
+      "stack",
+      "queue"
+    ],
+    "reference_answer": "栈后进先出；队列先进先出。",
+    "category": "cross_chunk",
+    "topic": "cross-dev-stack",
+    "split": "dev"
+  },
+  {
+    "id": "cross-dev-exit",
+    "question": "break 退出哪层循环，退出后会执行循环 else 吗？",
+    "relevant": [
+      "loop-control",
+      "loop-else"
+    ],
+    "reference_answer": "退出最内层循环；不会执行循环 else。",
+    "category": "cross_chunk",
+    "topic": "cross-dev-exit",
+    "split": "dev"
+  },
+  {
+    "id": "cross-test-file",
+    "question": "文件的追加模式是什么，怎样确保代码块结束后关闭它？",
+    "relevant": [
+      "file-mode",
+      "file-close"
+    ],
+    "reference_answer": "用 a 模式追加，通过 with 管理文件。",
+    "category": "cross_chunk",
+    "topic": "cross-test-file",
+    "split": "test"
+  },
+  {
+    "id": "cross-test-error",
+    "question": "异常不匹配 except 时怎样传递，处理时怎样重新抛出当前异常？",
+    "relevant": [
+      "exception-match",
+      "raise"
+    ],
+    "reference_answer": "向外层传递；使用不带参数的 raise 重新抛出。",
+    "category": "cross_chunk",
+    "topic": "cross-test-error",
+    "split": "test"
+  }
+]

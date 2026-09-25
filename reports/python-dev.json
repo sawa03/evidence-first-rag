@@ -1,0 +1,1108 @@
+{
+  "created_at": "2026-09-25T01:31:46.987231+00:00",
+  "python": "3.14.3",
+  "dataset": "python-docs-zh-v0.1",
+  "split": "dev",
+  "corpus_sha256": "4a2407b6336e458e85e3650e64f1d0a088f0b95834ced88b9f6b847f878fae97",
+  "questions_sha256": "cfde916e42bf3838a2133dae6ec40e3001a51b4f6a41416574da274ed92ae910",
+  "embedding_model": null,
+  "generation": false,
+  "latency_note": "Sequential end-to-end retrieval and extractive response; first dense query includes indexing.",
+  "results": [
+    {
+      "mode": "bm25",
+      "k": 3,
+      "min_overlap": 0.15,
+      "summary": {
+        "questions": 50,
+        "answerable": 34,
+        "unanswerable": 16,
+        "recall_at_k": 0.9705882352941176,
+        "mrr_at_k": 0.9558823529411765,
+        "all_evidence_recall_at_k": 0.9705882352941176,
+        "unanswerable_abstention_rate": 0.75,
+        "unanswerable_false_acceptance_rate": 0.25,
+        "answerable_acceptance_rate": 0.9117647058823529,
+        "abstention_precision": 0.8,
+        "answer_coverage": 0.7,
+        "mean_ms": 0.32898000000000005,
+        "p95_ms": 0.473
+      },
+      "by_category": {
+        "cross_chunk": {
+          "questions": 2,
+          "answerable": 2,
+          "unanswerable": 0,
+          "recall_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "all_evidence_recall_at_k": 1.0,
+          "unanswerable_abstention_rate": null,
+          "unanswerable_false_acceptance_rate": null,
+          "answerable_acceptance_rate": 1.0,
+          "abstention_precision": null,
+          "answer_coverage": 1.0,
+          "mean_ms": 0.3245,
+          "p95_ms": 0.33
+        },
+        "direct": {
+          "questions": 16,
+          "answerable": 16,
+          "unanswerable": 0,
+          "recall_at_k": 1.0,
+          "mrr_at_k": 1.0,
+          "all_evidence_recall_at_k": 1.0,
+          "unanswerable_abstention_rate": null,
+          "unanswerable_false_acceptance_rate": null,
+          "answerable_acceptance_rate": 0.9375,
+          "abstention_precision": 0.0,
+          "answer_coverage": 0.9375,
+          "mean_ms": 0.302875,
+          "p95_ms": 0.451
+        },
+        "paraphrase": {
+          "questions": 16,
+          "answerable": 16,
+          "unanswerable": 0,
+          "recall_at_k": 0.9375,
+          "mrr_at_k": 0.90625,
+          "all_evidence_recall_at_k": 0.9375,
+          "unanswerable_abstention_rate": null,
+          "unanswerable_false_acceptance_rate": null,
+          "answerable_acceptance_rate": 0.875,
+          "abstention_precision": 0.0,
+          "answer_coverage": 0.875,
+          "mean_ms": 0.3510625,
+          "p95_ms": 0.886
+        },
+        "unanswerable_near": {
+          "questions": 16,
+          "answerable": 0,
+          "unanswerable": 16,
+          "recall_at_k": null,
+          "mrr_at_k": null,
+          "all_evidence_recall_at_k": null,
+          "unanswerable_abstention_rate": 0.75,
+          "unanswerable_false_acceptance_rate": 0.25,
+          "answerable_acceptance_rate": null,
+          "abstention_precision": 1.0,
+          "answer_coverage": 0.25,
+          "mean_ms": 0.3335625,
+          "p95_ms": 0.601
+        }
+      },
+      "rows": [
+        {
+          "id": "list-edit-q1",
+          "question": "append 和 extend 添加元素有什么区别？",
+          "relevant": [
+            "list-edit"
+          ],
+          "retrieved": [
+            "list-edit",
+            "stack",
+            "list-pop"
+          ],
+          "status": "evidence",
+          "overlap": 0.3636,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "append 添加一个对象；extend 逐个添加元素。",
+          "answer": "append 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]",
+          "total_ms": 0.334
+        },
+        {
+          "id": "list-edit-q2",
+          "question": "remove 遇到不存在的值会怎样？",
+          "relevant": [
+            "list-edit"
+          ],
+          "retrieved": [
+            "list-edit"
+          ],
+          "status": "abstained",
+          "overlap": 0.1,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "抛出 ValueError。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.195
+        },
+        {
+          "id": "list-edit-q3",
+          "question": "列表中同一个值出现多次，remove 会全部删掉吗？",
+          "relevant": [
+            "list-edit"
+          ],
+          "retrieved": [
+            "list-edit",
+            "list-pop",
+            "stack"
+          ],
+          "status": "evidence",
+          "overlap": 0.1875,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "只删除首个匹配值。",
+          "answer": "append 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]",
+          "total_ms": 0.432
+        },
+        {
+          "id": "list-edit-q4",
+          "question": "想将一批元素逐个放到列表末尾用什么方法？",
+          "relevant": [
+            "list-edit"
+          ],
+          "retrieved": [
+            "list-edit",
+            "list-pop",
+            "queue"
+          ],
+          "status": "evidence",
+          "overlap": 0.2778,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "extend。",
+          "answer": "append 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\n队列采用先进先出顺序。列表从头部插入或移除时需要移动其余元素；collections.deque 适合两端操作，popleft 从左端取出。 [queue]",
+          "total_ms": 0.341
+        },
+        {
+          "id": "list-edit-q5",
+          "question": "列表 append 在这台电脑上每秒能执行多少次？",
+          "relevant": [],
+          "retrieved": [
+            "stack",
+            "list-edit",
+            "list-pop"
+          ],
+          "status": "abstained",
+          "overlap": 0.1333,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.42
+        },
+        {
+          "id": "list-edit-q6",
+          "question": "remove 删除元素后多久会把内存归还给操作系统？",
+          "relevant": [],
+          "retrieved": [
+            "list-edit",
+            "list-pop",
+            "queue"
+          ],
+          "status": "evidence",
+          "overlap": 0.1667,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "append 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\n队列采用先进先出顺序。列表从头部插入或移除时需要移动其余元素；collections.deque 适合两端操作，popleft 从左端取出。 [queue]",
+          "total_ms": 0.402
+        },
+        {
+          "id": "list-pop-q1",
+          "question": "pop 不写索引会删除哪里？",
+          "relevant": [
+            "list-pop"
+          ],
+          "retrieved": [
+            "list-pop",
+            "stack",
+            "list-edit"
+          ],
+          "status": "evidence",
+          "overlap": 0.3333,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "末尾元素。",
+          "answer": "pop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]\n\nappend 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]",
+          "total_ms": 0.305
+        },
+        {
+          "id": "list-pop-q2",
+          "question": "空列表调用 pop 会发生什么？",
+          "relevant": [
+            "list-pop"
+          ],
+          "retrieved": [
+            "list-pop",
+            "stack",
+            "file-close"
+          ],
+          "status": "evidence",
+          "overlap": 0.3333,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "抛出 IndexError。",
+          "answer": "pop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]\n\n通过 with 管理文件可在代码块结束时自动关闭文件，即使期间发生异常也会关闭。关闭后的文件不能继续读写。 [file-close]",
+          "total_ms": 0.374
+        },
+        {
+          "id": "list-pop-q3",
+          "question": "如何一次清空列表？",
+          "relevant": [
+            "list-pop"
+          ],
+          "retrieved": [
+            "list-pop",
+            "stack",
+            "list-edit"
+          ],
+          "status": "evidence",
+          "overlap": 0.4286,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "使用 clear。",
+          "answer": "pop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]\n\nappend 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]",
+          "total_ms": 0.252
+        },
+        {
+          "id": "list-pop-q4",
+          "question": "需要取出并移除指定位置的元素，该用什么？",
+          "relevant": [
+            "list-pop"
+          ],
+          "retrieved": [
+            "list-pop",
+            "queue",
+            "list-edit"
+          ],
+          "status": "evidence",
+          "overlap": 0.375,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "使用 pop。",
+          "answer": "pop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\n队列采用先进先出顺序。列表从头部插入或移除时需要移动其余元素；collections.deque 适合两端操作，popleft 从左端取出。 [queue]\n\nappend 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]",
+          "total_ms": 0.367
+        },
+        {
+          "id": "list-pop-q5",
+          "question": "pop 删除一个元素的精确耗时是多少纳秒？",
+          "relevant": [],
+          "retrieved": [
+            "list-edit",
+            "list-pop",
+            "stack"
+          ],
+          "status": "evidence",
+          "overlap": 0.1875,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "append 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]",
+          "total_ms": 0.284
+        },
+        {
+          "id": "list-pop-q6",
+          "question": "clear 操作是否保证立即减少进程的物理内存？",
+          "relevant": [],
+          "retrieved": [
+            "list-pop",
+            "queue"
+          ],
+          "status": "abstained",
+          "overlap": 0.1176,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.249
+        },
+        {
+          "id": "stack-q1",
+          "question": "用列表实现栈时怎样入栈？",
+          "relevant": [
+            "stack"
+          ],
+          "retrieved": [
+            "stack",
+            "pass",
+            "list-pop"
+          ],
+          "status": "evidence",
+          "overlap": 0.6,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "append。",
+          "answer": "栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]\n\npass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。 [pass]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]",
+          "total_ms": 0.223
+        },
+        {
+          "id": "stack-q2",
+          "question": "列表栈怎样出栈？",
+          "relevant": [
+            "stack"
+          ],
+          "retrieved": [
+            "stack",
+            "list-pop",
+            "list-edit"
+          ],
+          "status": "evidence",
+          "overlap": 0.3333,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "不带索引的 pop。",
+          "answer": "栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\nappend 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]",
+          "total_ms": 0.304
+        },
+        {
+          "id": "stack-q3",
+          "question": "最后放进栈的元素会先被取出吗？",
+          "relevant": [
+            "stack"
+          ],
+          "retrieved": [
+            "queue",
+            "list-pop",
+            "list-edit"
+          ],
+          "status": "evidence",
+          "overlap": 0.1538,
+          "recall_at_k": 0.0,
+          "reciprocal_rank": 0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "会，栈是后进先出。",
+          "answer": "队列采用先进先出顺序。列表从头部插入或移除时需要移动其余元素；collections.deque 适合两端操作，popleft 从左端取出。 [queue]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\nappend 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]",
+          "total_ms": 0.313
+        },
+        {
+          "id": "stack-q4",
+          "question": "栈按什么顺序取出元素？",
+          "relevant": [
+            "stack"
+          ],
+          "retrieved": [
+            "queue",
+            "stack",
+            "list-pop"
+          ],
+          "status": "evidence",
+          "overlap": 0.3333,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 0.5,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "后进先出。",
+          "answer": "队列采用先进先出顺序。列表从头部插入或移除时需要移动其余元素；collections.deque 适合两端操作，popleft 从左端取出。 [queue]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]",
+          "total_ms": 0.243
+        },
+        {
+          "id": "stack-q5",
+          "question": "栈默认最多允许存储多少个元素？",
+          "relevant": [],
+          "retrieved": [
+            "file-mode",
+            "list-pop",
+            "list-edit"
+          ],
+          "status": "abstained",
+          "overlap": 0.0769,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.271
+        },
+        {
+          "id": "stack-q6",
+          "question": "列表栈如何配置线程安全锁的超时时间？",
+          "relevant": [],
+          "retrieved": [
+            "list-pop",
+            "stack",
+            "list-edit"
+          ],
+          "status": "abstained",
+          "overlap": 0.0625,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.292
+        },
+        {
+          "id": "queue-q1",
+          "question": "队列采用什么取出顺序？",
+          "relevant": [
+            "queue"
+          ],
+          "retrieved": [
+            "queue",
+            "stack"
+          ],
+          "status": "evidence",
+          "overlap": 0.6667,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "先进先出。",
+          "answer": "队列采用先进先出顺序。列表从头部插入或移除时需要移动其余元素；collections.deque 适合两端操作，popleft 从左端取出。 [queue]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]",
+          "total_ms": 0.226
+        },
+        {
+          "id": "queue-q2",
+          "question": "deque 从左边取出元素用什么方法？",
+          "relevant": [
+            "queue"
+          ],
+          "retrieved": [
+            "queue",
+            "list-pop",
+            "list-edit"
+          ],
+          "status": "evidence",
+          "overlap": 0.3333,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "popleft。",
+          "answer": "队列采用先进先出顺序。列表从头部插入或移除时需要移动其余元素；collections.deque 适合两端操作，popleft 从左端取出。 [queue]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\nappend 在列表末尾添加一个对象；extend 逐个添加可迭代对象中的元素。remove 删除首个匹配值，找不到时抛出 ValueError。 [list-edit]",
+          "total_ms": 0.285
+        },
+        {
+          "id": "queue-q3",
+          "question": "为何列表不适合频繁从头部移除？",
+          "relevant": [
+            "queue"
+          ],
+          "retrieved": [
+            "queue",
+            "pass",
+            "list-pop"
+          ],
+          "status": "evidence",
+          "overlap": 0.3846,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "需要移动其余元素。",
+          "answer": "队列采用先进先出顺序。列表从头部插入或移除时需要移动其余元素；collections.deque 适合两端操作，popleft 从左端取出。 [queue]\n\npass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。 [pass]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]",
+          "total_ms": 0.358
+        },
+        {
+          "id": "queue-q4",
+          "question": "需要高效处理两端增删应该选哪个容器？",
+          "relevant": [
+            "queue"
+          ],
+          "retrieved": [
+            "queue",
+            "exception-match",
+            "list-edit"
+          ],
+          "status": "abstained",
+          "overlap": 0.125,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "collections.deque。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.886
+        },
+        {
+          "id": "queue-q5",
+          "question": "deque 在八核机器上每秒能处理多少条消息？",
+          "relevant": [],
+          "retrieved": [
+            "exception-match",
+            "queue",
+            "raise"
+          ],
+          "status": "abstained",
+          "overlap": 0.0625,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.601
+        },
+        {
+          "id": "queue-q6",
+          "question": "队列消息如何持久化到远程数据库？",
+          "relevant": [],
+          "retrieved": [
+            "queue",
+            "json"
+          ],
+          "status": "abstained",
+          "overlap": 0.0714,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.473
+        },
+        {
+          "id": "range-q1",
+          "question": "range 的终点会包含在结果里吗？",
+          "relevant": [
+            "range"
+          ],
+          "retrieved": [
+            "range"
+          ],
+          "status": "evidence",
+          "overlap": 0.3636,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "不会。",
+          "answer": "range 的终止值不包含在序列中，可以指定起点和步长。range 是可迭代对象，不会预先构造包含所有值的列表。 [range]",
+          "total_ms": 0.431
+        },
+        {
+          "id": "range-q2",
+          "question": "range 能指定步长吗？",
+          "relevant": [
+            "range"
+          ],
+          "retrieved": [
+            "range",
+            "binary",
+            "list-pop"
+          ],
+          "status": "evidence",
+          "overlap": 0.5,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "能。",
+          "answer": "range 的终止值不包含在序列中，可以指定起点和步长。range 是可迭代对象，不会预先构造包含所有值的列表。 [range]\n\n文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]",
+          "total_ms": 0.451
+        },
+        {
+          "id": "range-q3",
+          "question": "整数范围会预先创建完整列表吗？",
+          "relevant": [
+            "range"
+          ],
+          "retrieved": [
+            "range",
+            "list-pop",
+            "stack"
+          ],
+          "status": "evidence",
+          "overlap": 0.4615,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "不会。",
+          "answer": "range 的终止值不包含在序列中，可以指定起点和步长。range 是可迭代对象，不会预先构造包含所有值的列表。 [range]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]",
+          "total_ms": 0.412
+        },
+        {
+          "id": "range-q4",
+          "question": "怎样改变 range 产生整数的间隔？",
+          "relevant": [
+            "range"
+          ],
+          "retrieved": [
+            "range",
+            "raise",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.2,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "指定步长。",
+          "answer": "range 的终止值不包含在序列中，可以指定起点和步长。range 是可迭代对象，不会预先构造包含所有值的列表。 [range]\n\nraise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.278
+        },
+        {
+          "id": "range-q5",
+          "question": "range 对象在所有解释器中固定占用多少字节？",
+          "relevant": [],
+          "retrieved": [
+            "range",
+            "json",
+            "binary"
+          ],
+          "status": "evidence",
+          "overlap": 0.1765,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "range 的终止值不包含在序列中，可以指定起点和步长。range 是可迭代对象，不会预先构造包含所有值的列表。 [range]\n\njson.dumps 把可序列化对象转换成 JSON 字符串；json.dump 将其写入文件对象；json.load 从文件对象恢复数据。JSON 常用于应用间交换结构化数据。 [json]\n\n文本模式读写字符串，编码将字符串转换为字节；b 模式读写 bytes，不能指定 encoding。文本模式默认可能转换换行符，所以图片等二进制文件应使用二进制模式。 [binary]",
+          "total_ms": 0.369
+        },
+        {
+          "id": "range-q6",
+          "question": "range 的默认最大运行时间是多少？",
+          "relevant": [],
+          "retrieved": [
+            "range",
+            "file-mode",
+            "binary"
+          ],
+          "status": "abstained",
+          "overlap": 0.0833,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.296
+        },
+        {
+          "id": "loop-control-q1",
+          "question": "break 会退出哪层循环？",
+          "relevant": [
+            "loop-control"
+          ],
+          "retrieved": [
+            "loop-control",
+            "loop-else",
+            "finally"
+          ],
+          "status": "evidence",
+          "overlap": 0.5714,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "最内层循环。",
+          "answer": "break 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\nfinally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]",
+          "total_ms": 0.266
+        },
+        {
+          "id": "loop-control-q2",
+          "question": "continue 后会继续执行当前轮剩余语句吗？",
+          "relevant": [
+            "loop-control"
+          ],
+          "retrieved": [
+            "loop-control",
+            "exception-match",
+            "pass"
+          ],
+          "status": "evidence",
+          "overlap": 0.5,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "不会，继续下一轮。",
+          "answer": "break 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]\n\npass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。 [pass]",
+          "total_ms": 0.321
+        },
+        {
+          "id": "loop-control-q3",
+          "question": "只想跳过这一轮循环该用什么？",
+          "relevant": [
+            "loop-control"
+          ],
+          "retrieved": [
+            "loop-control",
+            "loop-else",
+            "exception-match"
+          ],
+          "status": "evidence",
+          "overlap": 0.3333,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "continue。",
+          "answer": "break 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]",
+          "total_ms": 0.26
+        },
+        {
+          "id": "loop-control-q4",
+          "question": "在嵌套循环中 break 会终止所有外层循环吗？",
+          "relevant": [
+            "loop-control"
+          ],
+          "retrieved": [
+            "loop-control",
+            "loop-else",
+            "range"
+          ],
+          "status": "evidence",
+          "overlap": 0.2143,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "不会，只退出最内层。",
+          "answer": "break 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\nrange 的终止值不包含在序列中，可以指定起点和步长。range 是可迭代对象，不会预先构造包含所有值的列表。 [range]",
+          "total_ms": 0.302
+        },
+        {
+          "id": "loop-control-q5",
+          "question": "执行 break 能节省多少毫秒？",
+          "relevant": [],
+          "retrieved": [
+            "finally",
+            "loop-else",
+            "loop-control"
+          ],
+          "status": "evidence",
+          "overlap": 0.25,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "finally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\nbreak 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]",
+          "total_ms": 0.261
+        },
+        {
+          "id": "loop-control-q6",
+          "question": "continue 对 CPU 分支预测的命中率是多少？",
+          "relevant": [],
+          "retrieved": [
+            "pass",
+            "loop-control",
+            "finally"
+          ],
+          "status": "abstained",
+          "overlap": 0.0769,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.293
+        },
+        {
+          "id": "loop-else-q1",
+          "question": "for 正常遍历结束会执行循环 else 吗？",
+          "relevant": [
+            "loop-else"
+          ],
+          "retrieved": [
+            "loop-else",
+            "finally",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.6154,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "会。",
+          "answer": "for 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\nfinally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.322
+        },
+        {
+          "id": "loop-else-q2",
+          "question": "break 退出后会进入循环 else 吗？",
+          "relevant": [
+            "loop-else"
+          ],
+          "retrieved": [
+            "loop-else",
+            "loop-control",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.3,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "不会。",
+          "answer": "for 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\nbreak 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.274
+        },
+        {
+          "id": "loop-else-q3",
+          "question": "while 条件变成假时能进入循环 else 吗？",
+          "relevant": [
+            "loop-else"
+          ],
+          "retrieved": [
+            "loop-else",
+            "loop-control",
+            "try-else"
+          ],
+          "status": "evidence",
+          "overlap": 0.4615,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "能。",
+          "answer": "for 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\nbreak 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]\n\ntry 的 else 子句仅在 try 没有抛出异常时执行。把只应在成功后执行的代码放在 else，可以避免误捕获这部分代码产生的异常。 [try-else]",
+          "total_ms": 0.302
+        },
+        {
+          "id": "loop-else-q4",
+          "question": "return 提前结束会跳过循环 else 吗？",
+          "relevant": [
+            "loop-else"
+          ],
+          "retrieved": [
+            "loop-else",
+            "loop-control",
+            "exception-match"
+          ],
+          "status": "evidence",
+          "overlap": 0.9091,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "会。",
+          "answer": "for 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\nbreak 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]",
+          "total_ms": 0.286
+        },
+        {
+          "id": "loop-else-q5",
+          "question": "循环 else 对程序吞吐量的平均提升是多少？",
+          "relevant": [],
+          "retrieved": [
+            "loop-else",
+            "loop-control",
+            "try-else"
+          ],
+          "status": "abstained",
+          "overlap": 0.1333,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.296
+        },
+        {
+          "id": "loop-else-q6",
+          "question": "循环 else 最初是在哪次设计会议上决定加入的？",
+          "relevant": [],
+          "retrieved": [
+            "loop-else",
+            "loop-control",
+            "try-else"
+          ],
+          "status": "abstained",
+          "overlap": 0.1176,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.317
+        },
+        {
+          "id": "pass-q1",
+          "question": "pass 语句会执行什么动作？",
+          "relevant": [
+            "pass"
+          ],
+          "retrieved": [
+            "pass",
+            "finally",
+            "exception-match"
+          ],
+          "status": "evidence",
+          "overlap": 0.4444,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "不执行任何动作。",
+          "answer": "pass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。 [pass]\n\nfinally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]",
+          "total_ms": 0.253
+        },
+        {
+          "id": "pass-q2",
+          "question": "空函数暂时没实现可以用什么占位？",
+          "relevant": [
+            "pass"
+          ],
+          "retrieved": [
+            "pass",
+            "stack",
+            "raise"
+          ],
+          "status": "evidence",
+          "overlap": 0.3571,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "direct",
+          "split": "dev",
+          "reference_answer": "pass。",
+          "answer": "pass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。 [pass]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]\n\nraise 可以主动抛出异常。在异常处理过程中，单独使用不带参数的 raise 可以重新抛出当前正在处理的异常。 [raise]",
+          "total_ms": 0.282
+        },
+        {
+          "id": "pass-q3",
+          "question": "空类需要满足语法要求可以写什么？",
+          "relevant": [
+            "pass"
+          ],
+          "retrieved": [
+            "pass",
+            "raise",
+            "queue"
+          ],
+          "status": "abstained",
+          "overlap": 0.1429,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "pass。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.282
+        },
+        {
+          "id": "pass-q4",
+          "question": "条件分支暂时没有要做的事能放 pass 吗？",
+          "relevant": [
+            "pass"
+          ],
+          "retrieved": [
+            "pass",
+            "loop-else",
+            "exception-match"
+          ],
+          "status": "evidence",
+          "overlap": 0.4667,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "paraphrase",
+          "split": "dev",
+          "reference_answer": "能。",
+          "answer": "pass 是不执行任何动作的语句，适合语法上需要语句但暂时没有实现的函数、类或条件分支。 [pass]\n\nfor 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\ntry 中抛出异常后会跳过其余语句，寻找匹配的 except。没有匹配的处理器时，异常会向外层传递；始终未处理则终止执行并报告错误。 [exception-match]",
+          "total_ms": 0.303
+        },
+        {
+          "id": "pass-q5",
+          "question": "pass 在不同 Python 版本中的机器码完全一样吗？",
+          "relevant": [],
+          "retrieved": [
+            "finally",
+            "pass",
+            "list-edit"
+          ],
+          "status": "abstained",
+          "overlap": 0.1333,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.309
+        },
+        {
+          "id": "pass-q6",
+          "question": "pass 在嵌入式设备上消耗多少焦耳？",
+          "relevant": [],
+          "retrieved": [
+            "pass"
+          ],
+          "status": "abstained",
+          "overlap": 0.0769,
+          "recall_at_k": null,
+          "reciprocal_rank": null,
+          "category": "unanswerable_near",
+          "split": "dev",
+          "reference_answer": "证据不足，无法回答。",
+          "answer": "证据不足，无法回答。",
+          "total_ms": 0.204
+        },
+        {
+          "id": "cross-dev-stack",
+          "question": "列表栈和 deque 队列的取出顺序分别是什么？",
+          "relevant": [
+            "stack",
+            "queue"
+          ],
+          "retrieved": [
+            "queue",
+            "stack",
+            "list-pop"
+          ],
+          "status": "evidence",
+          "overlap": 0.4,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "cross_chunk",
+          "split": "dev",
+          "reference_answer": "栈后进先出；队列先进先出。",
+          "answer": "队列采用先进先出顺序。列表从头部插入或移除时需要移动其余元素；collections.deque 适合两端操作，popleft 从左端取出。 [queue]\n\n栈采用后进先出顺序。用列表 append 入栈，用不带索引的 pop 出栈。 [stack]\n\npop 删除并返回指定位置的元素，省略索引时操作末尾。空列表或索引越界会抛出 IndexError。clear 清空列表。 [list-pop]",
+          "total_ms": 0.319
+        },
+        {
+          "id": "cross-dev-exit",
+          "question": "break 退出哪层循环，退出后会执行循环 else 吗？",
+          "relevant": [
+            "loop-control",
+            "loop-else"
+          ],
+          "retrieved": [
+            "loop-else",
+            "loop-control",
+            "finally"
+          ],
+          "status": "evidence",
+          "overlap": 0.3846,
+          "recall_at_k": 1.0,
+          "reciprocal_rank": 1.0,
+          "category": "cross_chunk",
+          "split": "dev",
+          "reference_answer": "退出最内层循环；不会执行循环 else。",
+          "answer": "for 正常耗尽迭代对象或 while 条件变为假时可执行循环 else。break、return 或异常导致的提前结束会跳过循环 else。 [loop-else]\n\nbreak 退出最内层循环；continue 跳过当前这一轮剩余语句，继续下一轮迭代。 [loop-control]\n\nfinally 用于清理工作；在正常控制流程或 Python 异常离开 try 时都会执行。try 中的 return、break 或 continue 离开前也会执行 finally。 [finally]",
+          "total_ms": 0.33
+        }
+      ]
+    }
+  ]
+}
